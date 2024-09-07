@@ -6,7 +6,7 @@ const theme = extendTheme({
     global: {
    
       body: {
-        bg: 'gray.200', 
+        bg: 'gray.100', 
         color: 'black',
       },
     },
