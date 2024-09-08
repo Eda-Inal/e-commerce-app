@@ -21,14 +21,15 @@ function Navbar() {
   }
   return (
     <>
-      <Box width={["95%", null, "80%"]} margin="0 auto" >
-        <Flex minWidth='max-content' alignItems='center' gap='2' justifyContent="space-between" textColor="gray.700">
-          <Box p='2' >
-            <Text fontSize="2xl" fontWeight={600}>Glowy</Text>
+    <Box width="100%"  bgGradient='linear(to-r,#F8BBD0, #F48FB1)'>
+    <Box width={["95%", null, "80%"]} margin="0 auto"  >
+        <Flex minWidth='max-content' alignItems='center' gap='2' justifyContent="space-between" textColor="gray.700" position="relative"  zIndex={100}>
+          <Box p='2'>
+            <Text fontSize="2xl" textColor="white" fontWeight={700}>Glowy</Text>
           </Box>
 
           <Show above='md'>
-            <Flex gap={10} alignItems="center">
+            <Flex gap={10} alignItems="center" textColor="white">
               <Box fontSize="lg" fontWeight={400} cursor="pointer"><Link href="/home">Home</Link></Box>
               <Box fontSize="lg" fontWeight={400} cursor="pointer">Products</Box>
               <Box fontSize="lg" fontWeight={400} cursor="pointer">About Us</Box>
@@ -81,6 +82,8 @@ function Navbar() {
 
         </Flex>
       </Box>
+    </Box>
+  
 
     </>
   )
