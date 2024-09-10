@@ -7,6 +7,7 @@ import { BsBasket3Fill } from "react-icons/bs";
 import serum from  "../../../public/serum.jpg"
 import mask from  "../../../public/mask.jpeg"
 import cream from  "../../../public/cream.jpg"
+import creamsecond from  "../../../public/creamsecond.jpg"
 import le from "../../../public/le.jpg"
 import five from "../../../public/five.png"
 
@@ -64,7 +65,114 @@ function Main() {
         </Box>
       </Box>
     </Box>
-    <Box width={["90%","80%","50%"]}></Box>
+
+
+
+
+
+    <Box width={["90%","80%","50%"]} display="flex" flexDirection="column" >
+      <Box width="400px" height="400px" position="relative" mx="auto" mt={8} >
+      <Box position="absolute" zIndex={999} width="200px" height="60px" bgColor="white" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.25)" borderRadius="15px" top={4} left={3} display="flex" justifyContent="center" alignItems="center" >
+        <Text  fontSize="1.5rem" fontWeight={500}>Glow up!</Text>
+      </Box>
+      <Box position="absolute" zIndex={999} width="200px" height="60px" bgColor="white" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.25)" borderRadius="15px" bottom={12} right={0} display="flex" justifyContent="center" alignItems="center" >
+        <Text  fontSize="1.5rem" fontWeight={500}>Flawless Skin!</Text>
+      </Box>
+
+      <Box
+      
+      mx="auto"
+      width="350px" 
+        height="350px"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      borderRadius="50%" 
+      overflow="hidden" 
+      zIndex={1}
+     position="relative">
+       <Image
+        src={mask} 
+        alt="Circular Image"
+        layout="fill" 
+        objectFit="cover" 
+        
+      />
+
+      </Box>
+      
+      </Box>
+      <Box
+      mt={4}
+      display="flex"
+      justifyContent="space-around"
+      alignItems="center"
+      width="80%"
+      mx="auto"
+    
+    
+    >
+      <Box
+        width="150px"
+        height="150px"
+        borderRadius="50%"
+        overflow="hidden"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ position: 'relative' }}
+        boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)" 
+      >
+        <Image
+          src={cream} 
+          alt="Serum"
+          layout="fill"
+          objectFit="cover"
+        />
+      </Box>
+
+   
+      <Box
+        width="150px"
+        height="150px"
+        borderRadius="50%"
+        overflow="hidden"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ position: 'relative' }}
+         boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"
+      >
+        <Image
+          src={creamsecond}
+          alt="Cream"
+          layout="fill"
+          objectFit="cover"
+        />
+      </Box>
+
+      <Box
+        width="150px"
+        height="150px"
+        borderRadius="50%"
+        overflow="hidden"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ position: 'relative' }}
+         boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"
+      >
+        <Image
+          src={serum} 
+          alt="Mask"
+          layout="fill"
+          objectFit="cover"
+        />
+      </Box>
+    </Box>
+
+      
+    </Box>
   </Box>
 
  </Box>
