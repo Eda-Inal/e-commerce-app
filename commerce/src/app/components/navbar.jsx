@@ -21,62 +21,23 @@ function Navbar() {
   }
   return (
     <>
-    <Box width="100%"  bgGradient='linear(to-r,#F8BBD0, #F48FB1)'>
+    <Box width="100%"  >
     <Box width={["95%", null, "80%"]} margin="0 auto"  >
         <Flex minWidth='max-content' alignItems='center' gap='2' justifyContent="space-between" textColor="gray.700" position="relative"  zIndex={100}>
           <Box p='2'>
-            <Text fontSize="2xl" textColor="white" fontWeight={700}>Glowy</Text>
+            <Text fontSize="2xl" textColor="#FF716A" fontWeight={400}>BrightAura</Text>
           </Box>
 
-          <Show above='md'>
-            <Flex gap={10} alignItems="center" textColor="white">
-              <Box fontSize="lg" fontWeight={400} cursor="pointer"><Link href="/home">Home</Link></Box>
-              <Box fontSize="lg" fontWeight={400} cursor="pointer">Products</Box>
-              <Box fontSize="lg" fontWeight={400} cursor="pointer">About Us</Box>
+      
+            <Flex gap={10} alignItems="center" fontWeight={300} >
+              <Box fontSize="lg"  cursor="pointer"><Link href="/home">Home</Link></Box>
+              <Box fontSize="lg"  cursor="pointer">Products</Box>
+              <Box fontSize="lg" cursor="pointer">About Us</Box>
               <Box fontSize="lg" fontWeight={500} cursor="pointer"><SlBasket /></Box>
             </Flex>
-          </Show>
-          <Show below='md'>
-            <Box position="absolute" top={0} right={0} width={50} height={50} bgColor='#FFDFF2' borderBottomLeftRadius='90%' cursor='pointer'>
-              {isBottomBar ?(
-                 <Box ml={3} mt={1} onClick={handleCloseMenubar}><IoClose size={28} color='gray'  /></Box>
-              ) :  <Box ml={4} mt={1} onClick={handleOpenMenubar}><IoMdMenu size={25} color='gray' /></Box>}
-             
-              </Box>
-          </Show>
-          <Show below='md'>
-          {
-  isBottomBar && (
-    <Box position="fixed" bottom={0}   left={0} width="200px" height="200px" bgColor="#FFDFF2" borderTopRightRadius="90%">
-
-<List spacing={3}  mt={7} fontSize='large' fontWeight={400} textColor="gray.700">
-  <ListItem mb={4}  ml={3}  >
-    <ListIcon as={FaHome} color='gray.700' />
-   Home
-  </ListItem >
-  <ListItem mb={4} ml={5}>
-    <ListIcon as={GiCorkedTube} color='gray.700' />
-    Products
-  </ListItem>
-  <ListItem ml={8} mb={4}>
-    <ListIcon as={FaInfoCircle} color='gray.700' />
-  About Us
-  </ListItem>
-  <ListItem ml={16}>
-    <ListIcon as={SlBasket} color='gray.700' />
-  Card
-  </ListItem>
-
-
-</List>
-
-
-
-
-</Box>
-  )
-}
-          </Show>
+         
+  
+       
 
 
 
