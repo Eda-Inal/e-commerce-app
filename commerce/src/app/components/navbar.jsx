@@ -32,7 +32,7 @@ function Navbar() {
       
             <Flex gap={10} alignItems="center" fontWeight={300} >
               <Box fontSize="lg"  cursor="pointer"><Link href="/home">Home</Link></Box>
-              <Box fontSize="lg"  cursor="pointer">Products</Box>
+              <Box fontSize="lg"  cursor="pointer"><Link href="/products">Products</Link></Box>
               <Box fontSize="lg" cursor="pointer">About Us</Box>
               <Box fontSize="lg" fontWeight={500} cursor="pointer"><BsBasket3Fill  /></Box>
             </Flex>
