@@ -25,7 +25,7 @@ function Main() {
  <Box width="100%" minHeight={["100%", "100%", "93vh"]}   bgGradient="linear(180.08deg, #FFF2F1 43.52%, #FFE5E4 59.37%, #FFB783 109.77%)"   >
   <Box display="flex" width="90%" flexDirection={["column","column", "row"]}  mx="auto"  >
     <Box width={["90%","80%","50%"]} mx="auto" mt={8}  display="flex" flexDirection="column" textAlign={["center","center","left"]} alignItems={["center","center","flex-start"]}>
-      <Text fontSize={["2rem","2.5rem","3rem"]} textColor="#FF716A" fontWeight={500}>Reveal Your Radiant Skin Today </Text>
+      <Text fontSize={["2rem","2.5rem","3rem"]} textColor="#FF716A" fontWeight={500}>Reveal Your Radiant Skin <Box as="span" color="#342123" >Today</Box></Text>
       {
   showYellowImage && (
     <Box width="300px" height="300px" position="relative" mx="auto" mt={8} >
@@ -64,7 +64,7 @@ function Main() {
       <Text fontSize={["1.2rem","1.5rem","2rem"]} fontWeight={300} mt={[0,2,4]}>Discover the Secrets to Glowing Skin</Text>
 
 
-      <Button width={["135px","150px","200px"]} borderRadius="30px" height="60px" fontSize={["1rem","1.2rem","1.3rem"]}rightIcon={<BsBasket3Fill/>} mt={8} bgColor="#FF5443" _hover={{bgColor:"#ff6f61"}} color="white" boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.25)">Shop Now</Button>
+      <Button width={["135px","150px","200px"]} borderRadius="30px" height="60px" fontSize={["1rem","1.2rem","1.3rem"]}rightIcon={<BsBasket3Fill/>} mt={8} bgColor="#FF5443" _hover={{bgColor:"#ff6f61"}} color="white" boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.35)">Shop Now</Button>
 
       <Box minW={300} maxHeight={600}  mt={6} mb={3} bgColor="#FFEBEA" boxShadow="10px 4px 4px rgba(0, 0, 0, 0.25)" borderRadius="20px" position="relative">
         <Box display="flex" flexDirection="column" justifyContent="center"  alignItem="center" width="90%" mx="auto">
@@ -73,7 +73,7 @@ function Main() {
           <Box width={["130px","160px","180px"]} height="40px" borderRadius={20} bgColor="white"display="flex" justifyContent="center" boxShadow="0px 8px 4px rgba(0, 0, 0, 0.25)" alignItems="center" ><Text textAlign="center" fontSize={["0.9rem","1rem","1.2rem"]} fontWeight={700}>Limited Edition</Text></Box>
           </Box>
           <Box display="flex" mt={5} flexDirection={["column","column","row"]} alignItems={["center","center","flex-start"]} >
-          <Box width="150px" height="170px"  position="relative">
+          <Box width="150px" height="170px"  position="relative" borderRadius="15px">
       <Image 
         src={le} 
         layout="fill" 
@@ -99,8 +99,8 @@ function Main() {
       />
     </Box>
   </Box>
-  <Box display="flex" justifyContent="flex-end" mt={4} mb={2}>
-    <Button width={["110px","120px","135px"]} height="50px"  borderRadius="30px" bgColor="#6BB663" _hover={{bgColor:"#78C86F"}} color="white" fontSize={["1rem","1rem","1.2rem"]}fontWeight={500} boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.15)">Buy now</Button>
+  <Box display="flex" justifyContent="flex-end"  mb={3}>
+    <Button width={["110px","120px","125px","135px"]} height="50px"  borderRadius="30px" bgColor="#FF5443" _hover={{bgColor:"#ff6f61"}} color="white" fontSize={["1rem","1rem","1.2rem"]}fontWeight={500} boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.15)">Buy now</Button>
   </Box>
 </Box>
           </Box>
