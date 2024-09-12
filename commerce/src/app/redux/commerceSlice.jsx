@@ -4,6 +4,9 @@ import { BsTruck } from "react-icons/bs";
 import { BiLeaf } from "react-icons/bi";
 import { PiRabbit } from "react-icons/pi";
 import { BsRecycle } from "react-icons/bs";
+import { FaHome } from "react-icons/fa";
+import { GiCorkedTube } from "react-icons/gi";
+import { BsBasket3Fill } from "react-icons/bs";
 
 export const commerceSlice = createSlice({
     name : 'commerce',
@@ -42,6 +45,21 @@ export const commerceSlice = createSlice({
       icon:BsRecycle
     }
   
+  ],
+   navbarItems : [
+    {
+      name: "Home",
+      icon: FaHome,
+      link:"home"
+    }, {
+      name: "Products",
+      icon: GiCorkedTube,
+      link:"products"
+    },
+    {
+      name: "My Card",
+      icon: BsBasket3Fill
+    }
   ]
 
     },
