@@ -1,11 +1,29 @@
+'use client'
 import React from 'react'
-import { Box,Text,Button } from '@chakra-ui/react'
+import { Box,Text,Button ,Radio,RadioGroup} from '@chakra-ui/react'
 import serum from  "../../../public/product.jpg"
 import banner from  "../../../public/banner.jpg"
 import Image from 'next/image'
 import { IoIosAdd } from "react-icons/io";
 function Products() {
   const items = Array(6).fill({});
+  const filters = [
+    {
+    name:"All",
+    id:1
+  },  {
+    name:"Price",
+    id:2
+  },
+  {
+    name:"Price Descending",
+    id:3
+  },
+  {
+    name:"Popularity",
+    id:4
+  }
+]
   return (
     <>
   <Box width={["95%","90%","80%"]} mx="auto" mt={8}  >
@@ -13,7 +31,7 @@ function Products() {
 <Box width="100%" display="flex" mx="auto" flexDirection={["column","column","column","row"]}>
 <Box width={["100%","100%","90%","20%"]} mx="auto" display="flex" flexDirection="column">
   {/* banner part */}
-  <Box width="100%" height={["170px","130px","150px","300px"]} textAlign="center" bgColor="#FF716A" mb={[3,3,3,0]} position="relative" borderRadius={15} display="flex" flexDirection={["row","row","row" ,"column"]} >
+  <Box width="100%" height={["170px","130px","150px","300px"]} textAlign="center" bgColor="#FF716A" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.2)" mb={[3,3,3,0]} position="relative" borderRadius={15} display="flex" flexDirection={["row","row","row" ,"column"]} >
 {/* banner img */}
 {/* <Box position="absolute" bgColor="#6BB663" borderRadius="50%" width="50px" height="50px" top={1} left={8} zIndex={99} color="white" display="flex" alignItems="center" justifyContent="center" fontWeight={500}>NEW</Box> */}
 <Box width={["30%","20%","20%","50%"]} height={["70%","80%","80%","40%"]}   position="relative" mt={2}   borderRadius="20%"  overflow="hidden" mx="auto" >
@@ -37,6 +55,23 @@ function Products() {
 
   </Box>
   {/* filter part */}
+  <Box width="100%" bgColor="white" height={["60px","40px","40px","120px"]} mt={5} mb={8} border="1px solid #FF716A" borderRadius="5px"    >
+<RadioGroup defaultValue='1'    >
+
+  <Box  display="flex" height={["60px","40px","40px","120px"]}  flexDirection={["row","row","row","column"]}  justifyContent={["space-between","space-around","space-around","space-around"]} alignContent={["center","center","center","flex-start"]} flexWrap="wrap" mx={2} >
+  {
+    filters.map((filter) => (
+      <Box fontWeight={500} > <Radio value={filter.id.toString()} >{filter.name}</Radio></Box>
+    ))
+  }
+    
+
+  </Box>
+
+</RadioGroup>
+
+
+  </Box>
 
 </Box>
 
