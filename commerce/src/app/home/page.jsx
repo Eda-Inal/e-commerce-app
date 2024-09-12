@@ -115,7 +115,7 @@ function Main() {
 
 {
   !showYellowImage && (
-    <Box width={["90%","80%","50%"]} display="flex" flexDirection="column"  ml={[0,2,28]} >
+    <Box width={["90%","80%","50%"]} display="flex" flexDirection="column"  ml={[0,2,5,28]} >
     <Box  width={[null,null,"360px","380px","400px"]}
      height={[null,null,"360px","380px","400px"]} position="relative" mx="auto" mt={8} >
     <Box position="absolute" zIndex={999} width={[null,null,"150px","180px","200px"]} height={[null,null,"50px","55px","60px"]} bgColor="white" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.25)" borderRadius="15px" top={4} left={3} display="flex" justifyContent="center" alignItems="center" >

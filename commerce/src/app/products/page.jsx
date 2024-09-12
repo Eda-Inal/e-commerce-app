@@ -22,7 +22,7 @@ function Products() {
   {/* banner part */}
   <Box width="100%" height={["170px","130px","150px","300px"]} textAlign="center" bgColor="#FF716A" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.2)" mb={[3,3,3,0]} position="relative" borderRadius={15} display="flex" flexDirection={["row","row","row" ,"column"]} >
 {/* banner img */}
-{/* <Box position="absolute" bgColor="#6BB663" borderRadius="50%" width="50px" height="50px" top={1} left={8} zIndex={99} color="white" display="flex" alignItems="center" justifyContent="center" fontWeight={500}>NEW</Box> */}
+ <Box position="absolute" bgColor="#6BB663" borderRadius="50%" width="50px" height="50px" top={[1]} left={[1,3,5,8]} zIndex={99} color="white" display="flex" alignItems="center" justifyContent="center" fontWeight={500}>NEW</Box> 
 <Box width={["30%","20%","20%","50%"]} height={["70%","80%","80%","40%"]}   position="relative" mt={2}   borderRadius="20%"  overflow="hidden" mx="auto" >
             <Image 
               src={banner} 
