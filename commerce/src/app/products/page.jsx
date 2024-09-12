@@ -1,12 +1,17 @@
 'use client'
 import React from 'react'
-import { Box,Text,Button ,Radio,RadioGroup} from '@chakra-ui/react'
+import { Box,Text,Button ,Radio,RadioGroup,useBreakpointValue} from '@chakra-ui/react'
 import serum from  "../../../public/product.jpg"
 import banner from  "../../../public/banner.jpg"
 import Image from 'next/image'
 import { IoIosAdd } from "react-icons/io";
+import { BsTruck } from "react-icons/bs";
+import { BiLeaf } from "react-icons/bi";
+import { PiRabbit } from "react-icons/pi";
+import { BsRecycle } from "react-icons/bs";
 function Products() {
   const items = Array(6).fill({});
+  const boxes = useBreakpointValue({ base: true, lg: false });
   const filters = [
     {
     name:"All",
@@ -23,6 +28,25 @@ function Products() {
     name:"Popularity",
     id:4
   }
+]
+const contents = [
+  {
+    name:"Fast Shipping",
+    icon:BsTruck
+  },
+  {
+    name:"100% Natural",
+    icon:BiLeaf
+  },
+  {
+    name:"Cruelty-Free",
+    icon:PiRabbit
+  },
+  {
+    name:"Eco-Friendly ",
+    icon:BsRecycle
+  }
+
 ]
   return (
     <>
@@ -72,6 +96,30 @@ function Products() {
 
 
   </Box>
+  {/* boxes */}
+  {
+    !boxes && (
+      <Box width="100%"  height="200px"  display="flex" flexDirection={["row","row","row" ,"column"]} >
+      <Box  height="80px" width="100%" display="flex" justifyContent="space-between" flexWrap="wrap">
+       
+      
+          {
+            contents.map((item) => (
+           
+                <Box width="48%" mb={2} height="100%"    border="1px solid #FF716A" display="flex" flexDirection="column" justifyContent="center" alignItems="center" >
+                <item.icon size={28} /> 
+                <Text textAlign="center" fontWeight={400}>{item.name}</Text>
+                </Box>
+             
+              
+            ))
+          }
+      </Box>
+      
+        </Box>
+    )
+  }
+
 
 </Box>
 
@@ -139,6 +187,28 @@ function Products() {
       ))}
 
 </Box>
+{
+    boxes && (
+      <Box width="100%"  height="200px"  display="flex" flexDirection={["row","row","row" ,"column"]} >
+      <Box  height="80px" width="100%" display="flex" justifyContent="space-between" flexWrap="wrap">
+       
+      
+          {
+            contents.map((item) => (
+           
+                <Box width="48%" mb={2} height="100%"    border="1px solid #FF716A" display="flex" flexDirection="column" justifyContent="center" alignItems="center" >
+                <item.icon size={28} /> 
+                <Text textAlign="center" fontWeight={400}>{item.name}</Text>
+                </Box>
+             
+              
+            ))
+          }
+      </Box>
+      
+        </Box>
+    )
+  }
 </Box>
 </Box>
   </Box>
