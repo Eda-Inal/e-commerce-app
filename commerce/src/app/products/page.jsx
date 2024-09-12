@@ -1,53 +1,18 @@
 'use client'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Box,Text,Button ,Radio,RadioGroup,useBreakpointValue} from '@chakra-ui/react'
 import serum from  "../../../public/product.jpg"
 import banner from  "../../../public/banner.jpg"
 import Image from 'next/image'
 import { IoIosAdd } from "react-icons/io";
-import { BsTruck } from "react-icons/bs";
-import { BiLeaf } from "react-icons/bi";
-import { PiRabbit } from "react-icons/pi";
-import { BsRecycle } from "react-icons/bs";
+
 function Products() {
+  const {filterNames,contents} = useSelector((state) => state.commerce)
   const items = Array(6).fill({});
   const boxes = useBreakpointValue({ base: true, lg: false });
-  const filters = [
-    {
-    name:"All",
-    id:1
-  },  {
-    name:"Price",
-    id:2
-  },
-  {
-    name:"Price Descending",
-    id:3
-  },
-  {
-    name:"Popularity",
-    id:4
-  }
-]
-const contents = [
-  {
-    name:"Fast Shipping",
-    icon:BsTruck
-  },
-  {
-    name:"100% Natural",
-    icon:BiLeaf
-  },
-  {
-    name:"Cruelty-Free",
-    icon:PiRabbit
-  },
-  {
-    name:"Eco-Friendly ",
-    icon:BsRecycle
-  }
 
-]
+
   return (
     <>
   <Box width={["95%","90%","80%"]} mx="auto" mt={8}  >
@@ -79,12 +44,12 @@ const contents = [
 
   </Box>
   {/* filter part */}
-  <Box width="100%" bgColor="white" height={["60px","40px","40px","120px"]} mt={5} mb={8} border="1px solid #FF716A" borderRadius="5px"    >
+  <Box width="100%"  height={["60px","40px","40px","120px"]} mt={5} mb={8} border="1px solid #FF716A" borderRadius="5px"    >
 <RadioGroup defaultValue='1'    >
 
   <Box  display="flex" height={["60px","40px","40px","120px"]}  flexDirection={["row","row","row","column"]}  justifyContent={["space-between","space-around","space-around","space-around"]} alignContent={["center","center","center","flex-start"]} flexWrap="wrap" mx={2} >
   {
-    filters.map((filter) => (
+    filterNames.map((filter) => (
       <Box fontWeight={500} > <Radio value={filter.id.toString()} >{filter.name}</Radio></Box>
     ))
   }
