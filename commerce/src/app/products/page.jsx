@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box,Text,Button } from '@chakra-ui/react'
 import serum from  "../../../public/product.jpg"
+import banner from  "../../../public/banner.jpg"
 import Image from 'next/image'
 import { IoIosAdd } from "react-icons/io";
 function Products() {
@@ -8,14 +9,36 @@ function Products() {
   return (
     <>
   <Box width={["95%","90%","80%"]} mx="auto" mt={8}  >
-    {/* banner */}
+
 <Box width="100%" display="flex" mx="auto" flexDirection={["column-reverse","column-reverse","column-reverse","row"]}>
-<Box width={["100%","100%","90%","20%"]}>sdd</Box>
+<Box width={["100%","100%","90%","20%"]} display="flex" flexDirection="column">
+  {/* banner part */}
+  <Box width="100%" height="300px" bgColor="#FF716A"textAlign="center" position="relative" borderRadius={15}>
+{/* banner img */}
+<Box position="absolute" bgColor="#6BB663" borderRadius="50%" width="50px" height="50px" top={1} left={8} zIndex={99} color="white" display="flex" alignItems="center" justifyContent="center" fontWeight={500}>NEW</Box>
+<Box width="50%" height="40%" mx="auto" position="relative" mt={2}   borderRadius="20%"  overflow="hidden" >
+            <Image 
+              src={banner} 
+              alt="Serum Image" 
+              layout="fill" 
+              objectFit="cover"
+              
+            />
+          </Box>
+          {/* banner content */}
+          <Box display="flex" width="90%" height="52%"  mx="auto" flexDirection="column" justifyContent="space-between" mt={2} >
+            <Text fontWeight={500} >Discover Ultimate Hydration with Glow & Revive!</Text>
+            <Text fontSize="14px" mt={2} fontWeight={400}>Glow & Revive Moisturize</Text>
+            <Button boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)" width="80%" mx="auto" borderRadius="20px" color="white" bgColor="#6BB663" mt="auto" _hover={{bgColor :"#78C970"}}>$18 Buy Now</Button>
+          </Box>
+
+  </Box>
+</Box>
 
 
 
 {/* right side */}
-<Box width={["100%","100%","90%","80%"]}  mx="auto">
+<Box width={["100%","100%","90%","75%"]}  mx="auto">
     <Box width="100%" display="flex" mx="auto" justifyContent="space-between">
 <Button width="22%" height="40px" fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #6BB663 solid" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)" fontSize={["16px","18px"]}>Serum</Button>
 <Button width="22%" height="40px" fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #6BB663 solid" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)" fontSize={["16px","18px"]}>Cream</Button>
