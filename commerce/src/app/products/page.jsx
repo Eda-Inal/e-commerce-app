@@ -10,13 +10,13 @@ function Products() {
     <>
   <Box width={["95%","90%","80%"]} mx="auto" mt={8}  >
 
-<Box width="100%" display="flex" mx="auto" flexDirection={["column-reverse","column-reverse","column-reverse","row"]}>
-<Box width={["100%","100%","90%","20%"]} display="flex" flexDirection="column">
+<Box width="100%" display="flex" mx="auto" flexDirection={["column","column","column","row"]}>
+<Box width={["100%","100%","90%","20%"]} mx="auto" display="flex" flexDirection="column">
   {/* banner part */}
-  <Box width="100%" height="300px" bgColor="#FF716A"textAlign="center" position="relative" borderRadius={15}>
+  <Box width="100%" height={["170px","130px","150px","300px"]} textAlign="center" bgColor="#FF716A" mb={[3,3,3,0]} position="relative" borderRadius={15} display="flex" flexDirection={["row","row","row" ,"column"]} >
 {/* banner img */}
-<Box position="absolute" bgColor="#6BB663" borderRadius="50%" width="50px" height="50px" top={1} left={8} zIndex={99} color="white" display="flex" alignItems="center" justifyContent="center" fontWeight={500}>NEW</Box>
-<Box width="50%" height="40%" mx="auto" position="relative" mt={2}   borderRadius="20%"  overflow="hidden" >
+{/* <Box position="absolute" bgColor="#6BB663" borderRadius="50%" width="50px" height="50px" top={1} left={8} zIndex={99} color="white" display="flex" alignItems="center" justifyContent="center" fontWeight={500}>NEW</Box> */}
+<Box width={["30%","20%","20%","50%"]} height={["70%","80%","80%","40%"]}   position="relative" mt={2}   borderRadius="20%"  overflow="hidden" mx="auto" >
             <Image 
               src={banner} 
               alt="Serum Image" 
@@ -26,13 +26,18 @@ function Products() {
             />
           </Box>
           {/* banner content */}
-          <Box display="flex" width="90%" height="52%"  mx="auto" flexDirection="column" justifyContent="space-between" mt={2} >
+          <Box display="flex" width={["50%","60%","60%","90%"]} mx="auto" height={["90%","90%","90%","52%"]}  flexDirection="column" justifyContent="space-between" mt={2} >
             <Text fontWeight={500} >Discover Ultimate Hydration with Glow & Revive!</Text>
             <Text fontSize="14px" mt={2} fontWeight={400}>Glow & Revive Moisturize</Text>
-            <Button boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)" width="80%" mx="auto" borderRadius="20px" color="white" bgColor="#6BB663" mt="auto" _hover={{bgColor :"#78C970"}}>$18 Buy Now</Button>
+            <Box display="flex" justifyContent={["end","end","end","center"]}>
+            <Button boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"  width={["70%","40%","30%","80%"]} borderRadius="20px" color="white" bgColor="#6BB663" mt="auto" _hover={{bgColor :"#78C970"}}>$18 Buy Now</Button>
+            </Box>
+           
           </Box>
 
   </Box>
+  {/* filter part */}
+
 </Box>
 
 
