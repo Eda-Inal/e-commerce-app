@@ -6,7 +6,7 @@ import { PiRabbit } from "react-icons/pi";
 import { BsRecycle } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
 import { GiCorkedTube } from "react-icons/gi";
-import { BsBasket3Fill } from "react-icons/bs";
+import { BsHandbag } from "react-icons/bs";
 
 export const commerceSlice = createSlice({
     name : 'commerce',
@@ -58,10 +58,10 @@ export const commerceSlice = createSlice({
     },
     {
       name: "My Card",
-      icon: BsBasket3Fill
+      icon: BsHandbag
     }
   ],
-  isCardOpen : true
+  isCardOpen : false
 
     },
     reducers:{

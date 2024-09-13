@@ -8,7 +8,7 @@ import { IoMdMenu } from "react-icons/io";
 import { useSelector, useDispatch } from 'react-redux';
 import { openMenuBar, closeMenuBar,setCardOpenClose } from '../redux/commerceSlice';
 import { IoClose } from "react-icons/io5";
-import { BsBasket3Fill } from "react-icons/bs";
+import { BsHandbag } from "react-icons/bs";
 function Navbar() {
   const dispatch = useDispatch();
   const { isBottomBar,navbarItems } = useSelector((state) => state.commerce)
@@ -31,7 +31,7 @@ function Navbar() {
         <Box width={["95%", null, "100%"]} margin="0 auto"  >
           <Flex minWidth='max-content' alignItems='center' gap='2' justifyContent="space-between" textColor="gray.700" position="relative" zIndex={100}>
             <Box p='2'>
-              <Text fontSize="2xl" textColor="#FF716A" fontWeight={400}>BrightAura</Text>
+              <Text fontSize="2xl" textColor="#FF8798" fontWeight={400}>BrightAura</Text>
             </Box>
 
             {
@@ -40,7 +40,7 @@ function Navbar() {
                   <Box fontSize="lg" cursor="pointer"><Link href="/home">Home</Link></Box>
                   <Box fontSize="lg" cursor="pointer"><Link href="/products">Products</Link></Box>
                   <Box fontSize="lg" cursor="pointer">About Us</Box>
-                  <Box onClick={() => handleOpenCloseCard(true)} fontSize="lg" fontWeight={500} cursor="pointer"><BsBasket3Fill /></Box>
+                  <Box onClick={() => handleOpenCloseCard(true)} fontSize="lg" fontWeight={500} cursor="pointer"><BsHandbag color='#FF8798' /></Box>
                 </Flex>
               )
             }
@@ -56,7 +56,7 @@ function Navbar() {
   showNavbar && (
     
     <>
-     <Box position="absolute" boxShadow=" -3px 3px 3px rgba(0, 0, 0, 0.25)" top={0} right={0} width="50px" height="50px" bgColor="#FF716A" borderBottomLeftRadius="90%" display="flex" justifyContent="center"  >
+     <Box position="absolute" boxShadow=" -3px 3px 3px rgba(0, 0, 0, 0.25)" top={0} right={0} width="50px" height="50px" bgColor="#EB596D" color="white"  borderBottomLeftRadius="90%" display="flex" justifyContent="center"  >
         {
           isBottomBar ?  (
 <Box mt={2} onClick={()=> handleCloseMenubar()}  >
@@ -73,7 +73,7 @@ function Navbar() {
       </Box>
     
       {isBottomBar && (
-    <Box position="fixed" boxShadow="5px -3px 3px rgba(0, 0, 0, 0.25)" zIndex={999} bottom={0} left={0} width="140px" fontWeight={400} height="140px" bgColor="#FF716A" borderTopRightRadius="90%" display="flex" flexDirection="column" justifyContent="space-around"    >
+    <Box position="fixed" boxShadow="5px -3px 3px rgba(0, 0, 0, 0.25)" zIndex={999} bottom={0} left={0} width="140px" fontWeight={400} height="140px" bgColor="#EB596D" color="white"  borderTopRightRadius="90%" display="flex" flexDirection="column" justifyContent="space-around"    >
  {navbarItems.map((item) => (
   <Box display="flex" ml={2} alignItems="center" key={item.name}>
     <item.icon />

@@ -36,7 +36,7 @@ dispatch(setCardOpenClose(situation))
         <>
         
            
-                <Box width={["100%", "70%", "50%", "40%", "35%", "30%"]} zIndex={9999} height="100vh" bgColor="#FFF6F5" position="fixed" top={0} right={0} boxShadow="-8px 4px 4px rgba(0, 0, 0, 0.25)" >
+                <Box width={["100%", "70%", "50%", "40%", "35%", "30%"]} zIndex={9999} height="100vh" bgColor="#FFF" position="fixed" top={0} right={0} boxShadow="-8px 4px 4px rgba(0, 0, 0, 0.25)" >
                 <Box display="flex" flexDirection="column" width="90%" mx="auto" height="98vh">
                     <Box>
                         
@@ -44,9 +44,9 @@ dispatch(setCardOpenClose(situation))
                     {/* header */}
                     
                     <Box cursor="pointer" onClick={() => handleOpenCloseCard(false)} display="flex" justifyContent="center" alignItems="center">
-                        <FaCaretLeft color="#FF716A" />
-                        <FaCaretLeft color="#FF716A" />
-                        <Text ml={2} color="#FF716A" fontWeight={400} letterSpacing="0.15rem" fontSize="1.2rem">Continue Shopping</Text>
+                        <FaCaretLeft color="#FF8798" />
+                        <FaCaretLeft color="#FF8798" />
+                        <Text ml={2} color="#FF8798" fontWeight={400} letterSpacing="0.15rem" fontSize="1.2rem">Continue Shopping</Text>
                     </Box>
                     {/* Under header bag and icons */}
                     <Box display="flex" mt={8} justifyContent="space-between" width="100%" mx="auto" >
@@ -63,7 +63,7 @@ dispatch(setCardOpenClose(situation))
                     <Box height="75vh" width="100%" overflowY="auto">
                     <Box width="100%" mt={8} display="flex" alignItems="center"  justifyContent="space-between" height="90px" >
     {/* icon */}
-<Box width="10%" cursor="pointer"><FaRegTrashCan/></Box>
+<Box width="10%" cursor="pointer"><FaRegTrashCan  color='#FF8798'/></Box>
 {/* products */}
 <Box width="65%" height="100%" display="flex" justifyContent="space-around" >
     <Box width="30%"   >
@@ -99,7 +99,7 @@ dispatch(setCardOpenClose(situation))
 {/* button */}
 
 
-<Button bgColor="#FF716A" color="white"mx="auto" height="6vh" width="70%" mt="auto" _hover={{bgColor:"#FF9792"}}  >$50 CHECKOUT</Button>
+<Button bgColor="#FF8798" color="white"mx="auto" height="6vh" width="70%" mt="auto" _hover={{bgColor:"#FFA9B5"}} >$50 CHECKOUT</Button>
                 </Box>
              
                     
