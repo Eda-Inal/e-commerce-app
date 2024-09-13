@@ -9,12 +9,14 @@ import serum from  "../../../public/product.jpg"
 function Card() {
     return (
         <>
-            <Box width={["100%", "70%", "50%", "40%", "35%", "30%"]} zIndex={9999} height="100vh" bgColor="#FFF6F5" position="fixed" top={0} right={0}  >
+            <Box width={["100%", "70%", "50%", "40%", "35%", "30%"]} zIndex={9999} height="100vh" bgColor="#FFF6F5" position="fixed" top={0} right={0} boxShadow="-12px 4px 4px rgba(0, 0, 0, 0.25)" >
                 <Box display="flex" flexDirection="column" width="90%" mx="auto" height="98vh">
-                    <Box height="90vh">
-    {/* header */}
+                    <Box>
+                        
+                    </Box>
+                    {/* header */}
                     
-    <Box display="flex" justifyContent="center" alignItems="center">
+                    <Box display="flex" justifyContent="center" alignItems="center">
                         <FaCaretLeft color="#FF716A" />
                         <FaCaretLeft color="#FF716A" />
                         <Text ml={2} color="#FF716A" fontWeight={400} letterSpacing="0.15rem" fontSize="1.2rem">Continue Shopping</Text>
@@ -28,10 +30,11 @@ function Card() {
                         </Box>
 
                         <Text><Box as="span" fontWeight={500} >3</Box> items</Text>
-                    </Box>
+                    </Box  >
 
                     {/* card boxes */}
-<Box width="100%" mt={8} display="flex" alignItems="center" justifyContent="space-between" height="90px" >
+                    <Box height="75vh" width="100%" overflowY="auto">
+                    <Box width="100%" mt={8} display="flex" alignItems="center"  justifyContent="space-between" height="90px" >
     {/* icon */}
 <Box width="10%" cursor="pointer"><FaRegTrashCan/></Box>
 {/* products */}
@@ -55,12 +58,16 @@ function Card() {
 </Box>
 </Box>
 
+
+
+
+
                     </Box>
-                
+
 {/* button */}
 
 
-<Button bgColor="#FF716A" color="white"mx="auto" height="6vh" width="70%" mt="auto"   >$50 CHECKOUT</Button>
+<Button bgColor="#FF716A" color="white"mx="auto" height="6vh" width="70%" mt="auto" _hover={{bgColor:"#FF9792"}}  >$50 CHECKOUT</Button>
                 </Box>
              
                     
