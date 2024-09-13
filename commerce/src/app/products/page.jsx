@@ -27,8 +27,8 @@ function Products() {
             <Image 
               src={banner} 
               alt="Serum Image" 
-              layout="fill" 
-              objectFit="cover"
+              fill 
+              style={{ objectFit: "cover" }}
               
             />
           </Box>
@@ -117,8 +117,8 @@ function Products() {
             <Image 
               src={serum} 
               alt="Serum Image" 
-              layout="fill" 
-              objectFit="cover" 
+              fill 
+              style={{ objectFit: "cover" }}
             />
           </Box>
 

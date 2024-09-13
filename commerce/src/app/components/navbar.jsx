@@ -21,7 +21,7 @@ function Navbar() {
   const handleOpenCloseCard= (situation) => {
     dispatch(setCardOpenClose(situation))
           }
-console.log(isBottomBar);
+
 
   //küçük ekranda
   const showNavbar = useBreakpointValue({ base: true, md: false });

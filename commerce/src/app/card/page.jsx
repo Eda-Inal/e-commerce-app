@@ -68,7 +68,11 @@ dispatch(setCardOpenClose(situation))
 <Box width="65%" height="100%" display="flex" justifyContent="space-around" >
     <Box width="30%"   >
     <Box width="100%" height="100%" position="relative">
-  <Image src={serum} alt="Serum Image" layout="fill" objectFit="cover" />
+  <Image 
+  src={serum} 
+  alt="Serum Image"  
+  fill 
+ style={{ objectFit: "cover" }} />
 </Box>
 
     </Box>

@@ -51,8 +51,8 @@ function Main() {
      <Image
       src={mask} 
       alt="Circular Image"
-      layout="fill" 
-      objectFit="cover" 
+      fill 
+    style={{ objectFit: "cover" }}
       
     />
 
@@ -76,8 +76,8 @@ function Main() {
           <Box width="150px" height="170px"  position="relative" borderRadius="15px">
       <Image 
         src={le} 
-        layout="fill" 
-        objectFit="cover" kırpsın
+        fill 
+        style={{ objectFit: "cover" }}
         alt="Sample Image" 
       />
     </Box>
