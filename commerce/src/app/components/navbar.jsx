@@ -53,7 +53,7 @@ console.log(isBottomBar);
   showNavbar && (
     
     <>
-     <Box position="absolute" top={0} right={0} width="50px" height="50px" bgColor="#FF716A" borderBottomLeftRadius="90%" display="flex" justifyContent="center"  >
+     <Box position="absolute" boxShadow=" -3px 3px 3px rgba(0, 0, 0, 0.25)" top={0} right={0} width="50px" height="50px" bgColor="#FF716A" borderBottomLeftRadius="90%" display="flex" justifyContent="center"  >
         {
           isBottomBar ?  (
 <Box mt={2} onClick={()=> handleCloseMenubar()}  >
@@ -70,7 +70,7 @@ console.log(isBottomBar);
       </Box>
     
       {isBottomBar && (
-    <Box position="fixed" zIndex={999} bottom={0} left={0} width="140px" fontWeight={400} height="140px" bgColor="#FF716A" borderTopRightRadius="90%" display="flex" flexDirection="column" justifyContent="space-around"    >
+    <Box position="fixed" boxShadow="5px -3px 3px rgba(0, 0, 0, 0.25)" zIndex={999} bottom={0} left={0} width="140px" fontWeight={400} height="140px" bgColor="#FF716A" borderTopRightRadius="90%" display="flex" flexDirection="column" justifyContent="space-around"    >
     {navbarItems.map((item) => (
             <Box display="flex" ml={2} alignItems="center">
       
