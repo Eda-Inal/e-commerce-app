@@ -1,22 +1,49 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react';
 import { Box, Text,Button } from '@chakra-ui/react'
+import { useSelector,useDispatch } from 'react-redux';
 import { FaCaretLeft } from "react-icons/fa6"
 import { BsHandbag } from "react-icons/bs";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import Image from 'next/image';
 import serum from  "../../../public/product.jpg"
+import { setCardOpenClose } from '../redux/commerceSlice';
 function Card() {
+    const dispatch=useDispatch();
+    const {isCardOpen} = useSelector((state) => state.commerce);
+    useEffect(() => {
+        // Sidebar açıldığında body'scrollunu gizle
+        if (isCardOpen) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'auto'; // Kapatıldığında geri getir
+        }
+    
+        // Cleanup: Sidebar kapatıldığında tekrar scrollu geri getir
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, [isCardOpen]);
+      if (!isCardOpen) return null;
+      const handleOpenCloseCard= (situation) => {
+dispatch(setCardOpenClose(situation))
+      }
+      
+      
+    
     return (
         <>
-            <Box width={["100%", "70%", "50%", "40%", "35%", "30%"]} zIndex={9999} height="100vh" bgColor="#FFF6F5" position="fixed" top={0} right={0} boxShadow="-12px 4px 4px rgba(0, 0, 0, 0.25)" >
+        
+           
+                <Box width={["100%", "70%", "50%", "40%", "35%", "30%"]} zIndex={9999} height="100vh" bgColor="#FFF6F5" position="fixed" top={0} right={0} boxShadow="-8px 4px 4px rgba(0, 0, 0, 0.25)" >
                 <Box display="flex" flexDirection="column" width="90%" mx="auto" height="98vh">
                     <Box>
                         
                     </Box>
                     {/* header */}
                     
-                    <Box display="flex" justifyContent="center" alignItems="center">
+                    <Box cursor="pointer" onClick={() => handleOpenCloseCard(false)} display="flex" justifyContent="center" alignItems="center">
                         <FaCaretLeft color="#FF716A" />
                         <FaCaretLeft color="#FF716A" />
                         <Text ml={2} color="#FF716A" fontWeight={400} letterSpacing="0.15rem" fontSize="1.2rem">Continue Shopping</Text>
@@ -62,6 +89,7 @@ function Card() {
 
 
 
+
                     </Box>
 
 {/* button */}
@@ -75,6 +103,9 @@ function Card() {
             
               
             </Box>
+            
+       
+         
 
         </>
     )

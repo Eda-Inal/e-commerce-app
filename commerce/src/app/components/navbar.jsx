@@ -6,7 +6,7 @@ import { Flex, Heading, Box, Show, List, ListItem, ListIcon, Text, useBreakpoint
 import { IoMdMenu } from "react-icons/io";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { openMenuBar, closeMenuBar } from '../redux/commerceSlice';
+import { openMenuBar, closeMenuBar,setCardOpenClose } from '../redux/commerceSlice';
 import { IoClose } from "react-icons/io5";
 import { BsBasket3Fill } from "react-icons/bs";
 function Navbar() {
@@ -18,6 +18,9 @@ function Navbar() {
   const handleCloseMenubar = () => {
     dispatch(closeMenuBar())
   }
+  const handleOpenCloseCard= (situation) => {
+    dispatch(setCardOpenClose(situation))
+          }
 console.log(isBottomBar);
 
   //küçük ekranda
@@ -37,7 +40,7 @@ console.log(isBottomBar);
                   <Box fontSize="lg" cursor="pointer"><Link href="/home">Home</Link></Box>
                   <Box fontSize="lg" cursor="pointer"><Link href="/products">Products</Link></Box>
                   <Box fontSize="lg" cursor="pointer">About Us</Box>
-                  <Box fontSize="lg" fontWeight={500} cursor="pointer"><BsBasket3Fill /></Box>
+                  <Box onClick={() => handleOpenCloseCard(true)} fontSize="lg" fontWeight={500} cursor="pointer"><BsBasket3Fill /></Box>
                 </Flex>
               )
             }
@@ -71,14 +74,24 @@ console.log(isBottomBar);
     
       {isBottomBar && (
     <Box position="fixed" boxShadow="5px -3px 3px rgba(0, 0, 0, 0.25)" zIndex={999} bottom={0} left={0} width="140px" fontWeight={400} height="140px" bgColor="#FF716A" borderTopRightRadius="90%" display="flex" flexDirection="column" justifyContent="space-around"    >
-    {navbarItems.map((item) => (
-            <Box display="flex" ml={2} alignItems="center">
-      
-            <item.icon />
-            <Box ml={1}><Link  href={`/${item.link}`} >{item.name}</Link></Box>
-          
-          </Box>
-        ))}
+ {navbarItems.map((item) => (
+  <Box display="flex" ml={2} alignItems="center" key={item.name}>
+    <item.icon />
+    <Box ml={1}>
+      {/* Eğer item.name 'My card' ise onClick ekle, değilse normal Link */}
+      {item.name === 'My Card' ? (
+        <Box as="span" onClick={() => handleOpenCloseCard(true)} cursor="pointer">
+          {item.name}
+        </Box>
+      ) : (
+        <Link href={`/${item.link}`}>
+          {item.name}
+        </Link>
+      )}
+    </Box>
+  </Box>
+))}
+
   
    
 

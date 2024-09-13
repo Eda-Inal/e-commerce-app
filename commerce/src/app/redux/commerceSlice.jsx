@@ -60,7 +60,8 @@ export const commerceSlice = createSlice({
       name: "My Card",
       icon: BsBasket3Fill
     }
-  ]
+  ],
+  isCardOpen : true
 
     },
     reducers:{
@@ -69,8 +70,11 @@ openMenuBar : (state) => {
 },
 closeMenuBar : (state) => {
     state.isBottomBar = false
+},
+setCardOpenClose : (state,action) => {
+state.isCardOpen = action.payload
 }
     }
 })
-export const {openMenuBar,closeMenuBar} = commerceSlice.actions
+export const {openMenuBar,closeMenuBar,setCardOpenClose} = commerceSlice.actions
 export default commerceSlice.reducer
