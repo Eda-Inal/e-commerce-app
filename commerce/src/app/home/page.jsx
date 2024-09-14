@@ -25,15 +25,15 @@ function Main() {
  <Box width="100%" minHeight={["100%", "100%", "93vh"]}     >
   <Box display="flex" width="90%" flexDirection={["column","column", "row"]}  mx="auto"  >
     <Box width={["90%","80%","50%"]} mx="auto" mt={8}  display="flex" flexDirection="column" textAlign={["center","center","left"]} alignItems={["center","center","flex-start"]}>
-      <Text fontSize={["2rem","2.5rem","3rem"]} fontWeight={500}>Reveal Your Radiant Skin <Box as="span" color="#FF8798" >Today</Box></Text>
+      <Text fontSize="3rem" fontWeight={500}>Reveal Your Radiant Skin <Box as="span" color="#FF8798" >Today</Box></Text>
       {
   showYellowImage && (
     <Box width="300px" height="300px" position="relative" mx="auto" mt={8} >
     <Box position="absolute" zIndex={999} width={["120px","150px"]} height="50px" bgColor="white" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.25)" borderRadius="15px" top={4} left={3} display="flex" justifyContent="center" alignItems="center" >
-      <Text  fontSize={["1rem","1.2rem"]} fontWeight={500}>Glow up!</Text>
+      <Text  fontSize="1.3rem" fontWeight={500}>Glow up!</Text>
     </Box>
     <Box position="absolute" zIndex={999} width={["120px","150px"]} height="50px" bgColor="white" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.25)" borderRadius="15px" bottom={12} right={0} display="flex" justifyContent="center" alignItems="center" >
-      <Text  fontSize={["1rem","1.2rem"]}fontWeight={500}>Flawless Skin!</Text>
+      <Text  fontSize="1.3rem" fontWeight={500}>Flawless Skin!</Text>
     </Box>
 
     <Box
@@ -61,16 +61,16 @@ function Main() {
     </Box>
   )
 }
-      <Text fontSize={["1.2rem","1.5rem","2rem"]} fontWeight={300} mt={[0,2,4]}>Discover the Secrets to Glowing Skin</Text>
+      <Text fontSize="1.7rem" fontWeight={300} mt={[0,2,4]}>Discover the Secrets to Glowing Skin</Text>
 
 
-      <Button width={["135px","150px","200px"]} borderRadius="30px" height="60px" fontSize={["1rem","1.2rem","1.3rem"]}rightIcon={<BsBasket3Fill/>} mt={8} bgColor="#FF8798" _hover={{bgColor:"#FFA9B5"}} color="white" boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.35)">Shop Now</Button>
+      <Button width="12rem" borderRadius="30px" height="4rem" fontSize="1.3rem" rightIcon={<BsBasket3Fill/>} mt={8} bgColor="#FF8798" _hover={{bgColor:"#FFA9B5"}} color="white" boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.35)">Shop Now</Button>
 
       <Box minW={300} maxHeight={600}  mt={6} mb={3} bgColor="white" boxShadow="10px 4px 4px rgba(0, 0, 0, 0.25)" borderRadius="20px" position="relative">
         <Box display="flex" flexDirection="column" justifyContent="center"  alignItem="center" width="90%" mx="auto">
           <Box display="flex" flexDirection={["column","row"] } alignItems="center"justifyContent="space-between" mt={3}>
-          <Box fontSize={["1rem","1.2rem","1.5rem"]} mb={[2,null,null]} fontWeight={500} >NOW AVAILABLE!</Box>
-          <Box width={["130px","160px","180px"]} height="40px" borderRadius={20} bgColor="#FFE3E8"display="flex" justifyContent="center" boxShadow="0px 4px 4px rgba(0, 0, 0, 0.1)" alignItems="center" ><Text textAlign="center" fontSize={["0.9rem","1rem","1.2rem"]} fontWeight={500}>Limited Edition</Text></Box>
+          <Box fontSize="1.2rem" mb={[2,null,null]} fontWeight={500} >NOW AVAILABLE!</Box>
+          <Box width="11rem" height="40px" borderRadius={20} bgColor="#FFE3E8"display="flex" justifyContent="center" boxShadow="0px 4px 4px rgba(0, 0, 0, 0.1)" alignItems="center" ><Text textAlign="center" fontSize="1rem" fontWeight={500}>Limited Edition</Text></Box>
           </Box>
           <Box display="flex" mt={5} flexDirection={["column","column","row"]} alignItems={["center","center","flex-start"]} >
           <Box width="150px" height="170px"  position="relative" borderRadius="15px">
@@ -83,8 +83,8 @@ function Main() {
     </Box>
 <Box ml={[0,8]} display="flex" flexDirection="column"   >
 
-  <Text fontWeight={500} fontSize={["0.9rem","1rem","1.2rem"]} mt={[3, null, null]} >Revitalize your skin with our new Radiance Hydrating Cream.</Text>
-  <Box display="flex" alignItems="center" justifyContent="space-between" fontSize={["0.9rem","1rem","1.2rem"]} mt={3}>
+  <Text fontWeight={500} fontSize="1.2rem" mt={[3, null, null]} >Revitalize your skin with our new Radiance Hydrating Cream.</Text>
+  <Box display="flex" alignItems="center" justifyContent="space-between" fontSize="1.2rem" mt={3}>
   <Box display="flex">
   <Text fontWeight={500}>It's only</Text>
   <Text ml={1}  fontWeight={600} color= "#ff6f61">$18</Text>
@@ -100,7 +100,7 @@ function Main() {
     </Box>
   </Box>
   <Box display="flex" justifyContent="flex-end"  mb={3}>
-    <Button width={["110px","120px","125px","135px"]} height="50px"  borderRadius="30px" bgColor="#FF8798" _hover={{bgColor:"#FFA9B5"}} color="white" fontSize={["1rem","1rem","1.2rem"]}fontWeight={500} boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.15)">Buy now</Button>
+    <Button width="10rem" height="3rem"  borderRadius="30px" bgColor="#FF8798" _hover={{bgColor:"#FFA9B5"}} color="white" fontSize="1.2rem" fontWeight={500} boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.15)">Buy now</Button>
   </Box>
 </Box>
           </Box>

@@ -40,7 +40,12 @@ function Navbar() {
                   <Box fontSize="lg" cursor="pointer"><Link href="/home">Home</Link></Box>
                   <Box fontSize="lg" cursor="pointer"><Link href="/products">Products</Link></Box>
                   <Box fontSize="lg" cursor="pointer">About Us</Box>
-                  <Box onClick={() => handleOpenCloseCard(true)} fontSize="lg" fontWeight={500} cursor="pointer"><BsHandbag color='#FF8798' /></Box>
+                  <Box onClick={() => handleOpenCloseCard(true)} fontSize="lg" fontWeight={500} cursor="pointer" position="relative">
+                    <BsHandbag color='#FF8798' />
+                    <Box position="absolute" fontSize="10px" top="-2" right="-1">
+                      0
+                      </Box>
+                      </Box>
                 </Flex>
               )
             }

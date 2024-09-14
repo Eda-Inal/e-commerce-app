@@ -2,6 +2,7 @@
 html {
     scrollbar-width: thin; 
     scrollbar-color: #f4c2c2 transparent;
+    font-size: clamp(12px, 2.5vw, 16px); 
   }
   
   body {
