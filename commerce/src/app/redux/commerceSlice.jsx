@@ -88,8 +88,22 @@ setAddCard :(state,action) => {
     state.totalAmount += amount
   }
 
+},
+setChangeAmount : (state,action) => {
+const  {id,change} = action.payload
+state.cardsProducts.map((product) =>{
+  if(product.id === id) {
+    product.amount += change
+    state.totalAmount += change
+   if(product.amount <= 0) {
+    state.cardsProducts = state.cardsProducts.filter(item => item.id !== id);
+   }
+  }
+
+} )
+
 }
     }
 })
-export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard} = commerceSlice.actions
+export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount} = commerceSlice.actions
 export default commerceSlice.reducer

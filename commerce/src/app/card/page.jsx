@@ -8,7 +8,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import Image from 'next/image';
 import serum from  "../../../public/product.jpg"
-import { setCardOpenClose } from '../redux/commerceSlice';
+import { setCardOpenClose,setChangeAmount } from '../redux/commerceSlice';
 function Card() {
     const dispatch=useDispatch();
     const {isCardOpen,cardsProducts,totalAmount} = useSelector((state) => state.commerce);
@@ -28,6 +28,9 @@ function Card() {
       if (!isCardOpen) return null;
       const handleOpenCloseCard= (situation) => {
 dispatch(setCardOpenClose(situation))
+      }
+      const handleChangeAmount = (productId, amountChange) => {
+dispatch(setChangeAmount({ id: productId, change: amountChange }))
       }
       
       
@@ -85,9 +88,9 @@ dispatch(setCardOpenClose(situation))
                       </Box>
                       {/* amount */}
                       <Box width="20%" display="flex" justifyContent="space-around" alignItems="center">
-                      <Box cursor="pointer"><FiMinusCircle /></Box>
+                      <Box onClick={() => handleChangeAmount(product.id, -1)} cursor="pointer"><FiMinusCircle /></Box>
                       <Text>{product.amount}</Text>
-                      <Box cursor="pointer"><FiPlusCircle /></Box>
+                      <Box onClick={() => handleChangeAmount(product.id, 1)}  cursor="pointer"><FiPlusCircle /></Box>
                       </Box>
                       </Box>
                         ))
