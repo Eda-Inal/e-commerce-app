@@ -2,6 +2,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Box,Text,Button ,Radio,RadioGroup,useBreakpointValue} from '@chakra-ui/react'
+import datas from "../../../public/data.json"
 import serum from  "../../../public/product.jpg"
 import banner from  "../../../public/banner.jpg"
 import Image from 'next/image'
@@ -11,10 +12,12 @@ function Products() {
   const {filterNames,contents} = useSelector((state) => state.commerce)
   const items = Array(6).fill({});
   const boxes = useBreakpointValue({ base: true, lg: false });
+const  {products} = datas
 
 
   return (
     <>
+
   <Box width={["95%","90%","80%"]} mx="auto" mt={8}  >
 
 <Box width="100%" display="flex" mx="auto" flexDirection={["column","column","column","row"]}>
@@ -100,7 +103,7 @@ function Products() {
     </Box>
     {/* Cards */}
 <Box mt={8} width="100%" mx="auto" display="flex" flexWrap="wrap" justifyContent={["center", "center", "space-between"]}>
-{items.map((_, index) => (
+{products.map((product, index) => (
         <Box
           key={index}
           width={["100%", "100%", "48%", "48%", "48%", "30%"]}
@@ -115,7 +118,7 @@ function Products() {
           {/* Resim Alanı - %30 */}
           <Box width="30%" height="100%" position="relative" >
             <Image 
-              src={serum} 
+              src={product.img} 
               alt="Serum Image" 
               fill 
               style={{ objectFit: "cover" }}
@@ -124,12 +127,12 @@ function Products() {
 
           {/* Metin Alanı - %70 */}
           <Box width="70%" height="100%" p={3} display="flex" flexDirection="column" alignItems="flex-start">
-            <Text fontSize="1.1rem" fontWeight={500}>HydraBoost Serum</Text>
-            <Text mt={2} fontSize="1rem">Enhances skin tone and adds radiance.</Text>
+            <Text fontSize="1.1rem" fontWeight={500}>{product.name}</Text>
+            <Text mt={2} fontSize="1rem">{product.description}</Text>
             <Box flexGrow={1} />
             <Box display="flex" w="100%" justifyContent="space-between" alignItems="center">
               <Box>
-                <Text  fontSize="17px" fontWeight={500}>$14</Text>
+                <Text  fontSize="17px" fontWeight={500}>${product.price}</Text>
               </Box>
               <Box>
                 <Box 

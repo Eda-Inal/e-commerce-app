@@ -1,0 +1,113 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Hydra Serum",
+        "description": "Provides deep hydration and smoothness.",
+        "type": "serum",
+        "price": 19.99,
+        "popularity": 4.5,
+        "img": "/assets/serum1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Glow Cream",
+        "description": "Brightens skin and evens out tone.",
+        "type": "cream",
+        "price": 22.50,
+        "popularity": 4.7,
+        "img": "/assets/cream1.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Fresh Toner",
+        "description": "Refreshes and balances skin pH levels.",
+        "type": "toner",
+        "price": 16.99,
+        "popularity": 4.2,
+       "img": "/assets/tonik1.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Revive Mask",
+        "description": "Revitalizes tired skin and restores glow.",
+        "type": "mask",
+        "price": 18.75,
+        "popularity": 4.3,
+         "img": "/assets/mask1.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Silk Serum",
+        "description": "Softens skin texture and reduces fine lines.",
+        "type": "serum",
+        "price": 21.49,
+        "popularity": 4.6,
+        "img": "/assets/serum2.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Calm Cream",
+        "description": "Soothes irritation and reduces redness.",
+        "type": "cream",
+        "price": 23.00,
+        "popularity": 4.4,
+         "img": "/assets/cream2.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Aqua Toner",
+        "description": "Hydrates and refreshes with a cooling effect.",
+        "type": "toner",
+        "price": 15.99,
+        "popularity": 4.1,
+       "img": "/assets/tonik2.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Nourish Mask",
+        "description": "Deeply nourishes and improves skin elasticity.",
+        "type": "mask",
+        "price": 19.50,
+        "popularity": 4.8,
+        "img": "/assets/mask2.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Renew Serum",
+        "description": "Promotes cell renewal and smoothes fine lines.",
+        "type": "serum",
+        "price": 22.99,
+        "popularity": 4.9,
+       "img": "/assets/serum3.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Radiance Cream",
+        "description": "Boosts radiance and improves skin texture.",
+        "type": "cream",
+        "price": 24.00,
+        "popularity": 4.7,
+        "img": "/assets/cream3.jpg"
+      },
+      {
+        "id": 11,
+        "name": "Pure Serum",
+        "description": "Purifies and refines pores for a clearer look.",
+        "type": "serum",
+        "price": 20.75,
+        "popularity": 4.5,
+       "img": "/assets/serum4.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Ultra Cream",
+        "description": "Intensely hydrates and strengthens skin barrier.",
+        "type": "cream",
+        "price": 23.50,
+        "popularity": 4.6,
+       "img": "/assets/cream4.jpg"
+      }
+    ]
+  }
+  
