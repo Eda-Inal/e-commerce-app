@@ -7,7 +7,8 @@ import serum from  "../../../public/product.jpg"
 import banner from  "../../../public/banner.jpg"
 import Image from 'next/image'
 import { IoIosAdd } from "react-icons/io";
-import { setAddCard } from '../redux/commerceSlice'
+import { setAddCard ,setCardOpenClose} from '../redux/commerceSlice'
+import { TbShoppingBagPlus } from "react-icons/tb";
 
 function Products() {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ console.log("card redux", cardsProducts);
 
 const handleAddCard = (product) => {
 dispatch(setAddCard({...product,amount:1}))
+dispatch(setCardOpenClose(true))
 }
   return (
     <>
@@ -152,7 +154,7 @@ dispatch(setAddCard({...product,amount:1}))
                   alignItems="center"
                   _hover={{bgColor:"#FFA9B5"}}
                 >
-                  <IoIosAdd color="#FFFFFF" size={24} />
+                  <TbShoppingBagPlus color="#FFFFFF" size={24} />
                 </Box>
               </Box>
             </Box>

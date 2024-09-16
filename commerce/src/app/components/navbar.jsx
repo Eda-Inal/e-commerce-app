@@ -11,7 +11,7 @@ import { IoClose } from "react-icons/io5";
 import { BsHandbag } from "react-icons/bs";
 function Navbar() {
   const dispatch = useDispatch();
-  const { isBottomBar,navbarItems } = useSelector((state) => state.commerce)
+  const { isBottomBar,navbarItems,totalAmount } = useSelector((state) => state.commerce)
   const handleOpenMenubar = () => {
     dispatch(openMenuBar())
   }
@@ -43,7 +43,7 @@ function Navbar() {
                   <Box onClick={() => handleOpenCloseCard(true)} fontSize="lg" fontWeight={500} cursor="pointer" position="relative">
                     <BsHandbag color='#FF8798' />
                     <Box position="absolute" fontSize="10px" top="-2" right="-1">
-                      0
+                      {totalAmount}
                       </Box>
                       </Box>
                 </Flex>
