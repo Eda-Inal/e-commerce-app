@@ -63,7 +63,8 @@ export const commerceSlice = createSlice({
   ],
   isCardOpen : false,
   cardsProducts:[],
-  totalAmount:0
+  totalAmount:0,
+  
 
     },
   
@@ -102,8 +103,14 @@ state.cardsProducts.map((product) =>{
 
 } )
 
+},
+setDeleteItem : (state,action) => {
+const id = action.payload;
+const product = state.cardsProducts.find((item) =>  item.id === id)
+state.cardsProducts = state.cardsProducts.filter(item => item.id !== id);
+state.totalAmount -= product.amount
 }
     }
 })
-export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount} = commerceSlice.actions
+export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem} = commerceSlice.actions
 export default commerceSlice.reducer

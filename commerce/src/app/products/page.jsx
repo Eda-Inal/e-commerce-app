@@ -146,15 +146,16 @@ dispatch(setCardOpenClose(true))
                   w="35px" 
                   height="35px" 
                   borderRadius="50%" 
-                  bgColor="#FF8798" 
+                 border="1px solid #FF8798"
                   cursor="pointer"
                   boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"
                   display="flex"
                   justifyContent="center"
                   alignItems="center"
-                  _hover={{bgColor:"#FFA9B5"}}
+                  color="#FF8798"
+                  _hover={{bgColor:"#FF8798",color:"white"}}
                 >
-                  <TbShoppingBagPlus color="#FFFFFF" size={24} />
+                  <TbShoppingBagPlus  size={24} />
                 </Box>
               </Box>
             </Box>

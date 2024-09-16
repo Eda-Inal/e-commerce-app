@@ -9,7 +9,7 @@ import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import Image from 'next/image';
 import serum from "../../../public/product.jpg"
 import { FaRegSmileBeam } from "react-icons/fa";
-import { setCardOpenClose, setChangeAmount } from '../redux/commerceSlice';
+import { setCardOpenClose, setChangeAmount,setDeleteItem } from '../redux/commerceSlice';
 function Card() {
   const dispatch = useDispatch();
   const { isCardOpen, cardsProducts, totalAmount } = useSelector((state) => state.commerce);
@@ -33,6 +33,9 @@ function Card() {
   const handleChangeAmount = (productId, amountChange) => {
     dispatch(setChangeAmount({ id: productId, change: amountChange }))
   }
+  const handleDelete = (id) => {
+    dispatch(setDeleteItem(id))
+    }
 
 
 
@@ -84,7 +87,7 @@ function Card() {
               cardsProducts.map((product) => (
                 <Box width="100%" mt={8} display="flex" alignItems="center" justifyContent="space-between" height="90px" >
                   {/* icon */}
-                  <Box width="10%" cursor="pointer"><FaRegTrashCan color='#FF8798' /></Box>
+                  <Box width="10%" cursor="pointer" onClick={() => handleDelete(product.id)}><FaRegTrashCan color='#FF8798' /></Box>
                   {/* products */}
                   <Box width="65%" height="100%" display="flex" justifyContent="space-around" >
                     <Box width="30%"   >
