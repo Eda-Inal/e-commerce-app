@@ -78,11 +78,11 @@ function Navbar() {
       </Box>
     
       {isBottomBar && (
-    <Box position="fixed" boxShadow="5px -3px 3px rgba(0, 0, 0, 0.25)" zIndex={999} bottom={0} left={0} width="140px" fontWeight={400} height="140px" bgColor="#EB596D" color="white"  borderTopRightRadius="90%" display="flex" flexDirection="column" justifyContent="space-around"    >
+    <Box position="fixed" boxShadow="5px -3px 3px rgba(0, 0, 0, 0.25)" zIndex={999} bottom={0} left={0} width="10rem" fontWeight={400} height="10rem" bgColor="#EB596D" color="white"  borderTopRightRadius="90%" display="flex" flexDirection="column" justifyContent="space-around"    >
  {navbarItems.map((item) => (
   <Box display="flex" ml={2} alignItems="center" key={item.name}>
     <item.icon />
-    <Box ml={1}>
+    <Box ml={1} fontSize="1.2rem">
       {/* Eğer item.name 'My card' ise onClick ekle, değilse normal Link */}
       {item.name === 'My Card' ? (
         <Box as="span" onClick={() => handleOpenCloseCard(true)} cursor="pointer">
