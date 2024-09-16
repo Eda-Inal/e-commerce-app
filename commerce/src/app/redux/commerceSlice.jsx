@@ -61,9 +61,12 @@ export const commerceSlice = createSlice({
       icon: BsHandbag
     }
   ],
-  isCardOpen : false
+  isCardOpen : false,
+  cardsProducts:[],
+  totalAmount:0
 
     },
+  
     reducers:{
 openMenuBar : (state) => {
     state.isBottomBar = true
@@ -73,8 +76,20 @@ closeMenuBar : (state) => {
 },
 setCardOpenClose : (state,action) => {
 state.isCardOpen = action.payload
+},
+setAddCard :(state,action) => {
+  const { id, amount } = action.payload;
+  const existingProduct = state.cardsProducts.find(product => product.id === id);
+  if (existingProduct) {
+    existingProduct.amount += amount;
+    state.totalAmount += amount
+  } else {
+    state.cardsProducts.push(action.payload);
+    state.totalAmount += amount
+  }
+
 }
     }
 })
-export const {openMenuBar,closeMenuBar,setCardOpenClose} = commerceSlice.actions
+export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard} = commerceSlice.actions
 export default commerceSlice.reducer

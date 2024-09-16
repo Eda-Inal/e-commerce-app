@@ -1,20 +1,25 @@
 'use client'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import { Box,Text,Button ,Radio,RadioGroup,useBreakpointValue} from '@chakra-ui/react'
 import datas from "../../../public/data.json"
 import serum from  "../../../public/product.jpg"
 import banner from  "../../../public/banner.jpg"
 import Image from 'next/image'
 import { IoIosAdd } from "react-icons/io";
+import { setAddCard } from '../redux/commerceSlice'
 
 function Products() {
-  const {filterNames,contents} = useSelector((state) => state.commerce)
+  const dispatch = useDispatch()
+  const {filterNames,contents,cardsProducts} = useSelector((state) => state.commerce)
   const items = Array(6).fill({});
   const boxes = useBreakpointValue({ base: true, lg: false });
 const  {products} = datas
+console.log("card redux", cardsProducts);
 
-
+const handleAddCard = (product) => {
+dispatch(setAddCard({...product,amount:1}))
+}
   return (
     <>
 
@@ -135,7 +140,7 @@ const  {products} = datas
                 <Text  fontSize="17px" fontWeight={500}>${product.price}</Text>
               </Box>
               <Box>
-                <Box 
+                <Box onClick={() => handleAddCard(product)}
                   w="35px" 
                   height="35px" 
                   borderRadius="50%" 
