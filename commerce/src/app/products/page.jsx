@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { IoIosAdd } from "react-icons/io";
 import { setAddCard ,setCardOpenClose} from '../redux/commerceSlice'
 import { TbShoppingBagPlus } from "react-icons/tb";
+import { px } from 'framer-motion'
 
 function Products() {
   const dispatch = useDispatch()
@@ -28,7 +29,7 @@ dispatch(setCardOpenClose(true))
   <Box width={["95%","90%","80%"]} mx="auto" mt={8}  >
 
 <Box width="100%" display="flex" mx="auto" flexDirection={["column","column","column","row"]}>
-<Box width={["100%","100%","90%","20%"]} mx="auto" display="flex" flexDirection="column">
+<Box width={["100%","100%","100%","20%"]} mx="auto" display="flex" flexDirection="column">
   {/* banner part */}
   <Box width="100%" height={["11rem","9rem","9rem","21rem"]} textAlign="center" bgColor="#FFE3E8" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.2)" mb={[3,3,3,0]} position="relative" borderRadius={15} display="flex" flexDirection={["row","row","row" ,"column"]} >
 {/* banner img */}
@@ -101,7 +102,7 @@ dispatch(setCardOpenClose(true))
 
 
 {/* right side */}
-<Box width={["100%","100%","90%","75%"]}  mx="auto">
+<Box width={["100%","100%","100%","75%"]}  mx="auto">
     <Box width="100%" display="flex" mx="auto" justifyContent="space-between">
 <Button width="22%" height="40px" fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #FF8798 solid" _hover={{bgColor:"#FFE3E8"}}  boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)" fontSize="1.1rem">Serum</Button>
 <Button width="22%" height="40px"  _hover={{bgColor:"#FFE3E8"}}  fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #FF8798 solid" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)"fontSize="1.1rem">Cream</Button>
@@ -109,21 +110,23 @@ dispatch(setCardOpenClose(true))
 <Button width="22%"  _hover={{bgColor:"#FFE3E8"}}  height="40px" fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #FF8798 solid" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)" fontSize="1.1rem">Toner</Button>
     </Box>
     {/* Cards */}
-<Box mt={8} width="100%" mx="auto" display="flex" flexWrap="wrap" justifyContent={["center", "center", "space-between"]}>
+<Box mt={8} width="100%" mx="auto" display="flex" flexWrap="wrap" justifyContent={["center", "center", "space-between"]} >
 {products.map((product, index) => (
         <Box
           key={index}
-          width={["100%", "100%", "48%", "48%", "48%", "30%"]}
+          width={["48%", "48%", "48%", "30%", "30%", "22%"]}
           boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"
           mx={["auto", 0, 0, 0]}
-          height="200px"
+          height={["200px","12rem"]}
           bgColor="#FFFEFE"
           display="flex"
+          flexDirection={["column","row"]}
+          alignItems={{ base: 'center', sm: 'initial' }}
           position="relative"
           mb={6}
         >
           {/* Resim Alanı - %30 */}
-          <Box width="30%" height="100%" position="relative" >
+          <Box width="35%" height="100%" position="relative" >
             <Image 
               src={product.img} 
               alt="Serum Image" 
@@ -133,18 +136,18 @@ dispatch(setCardOpenClose(true))
           </Box>
 
           {/* Metin Alanı - %70 */}
-          <Box width="70%" height="100%" p={3} display="flex" flexDirection="column" alignItems="flex-start">
-            <Text fontSize="1.1rem" fontWeight={500}>{product.name}</Text>
-            <Text mt={2} fontSize="1rem">{product.description}</Text>
+          <Box width={["100%","70%"]} height="100%" p={3} display="flex" flexDirection="column" alignItems={{ base: 'center', sm: 'flex-start' }}>
+            <Text fontSize="1rem" fontWeight={500}>{product.name}</Text>
+            <Text mt={2} fontSize="0.85rem">{product.description}</Text>
             <Box flexGrow={1} />
             <Box display="flex" w="100%" justifyContent="space-between" alignItems="center">
               <Box>
-                <Text  fontSize="17px" fontWeight={500}>${product.price}</Text>
+                <Text  fontSize="1rem" fontWeight={500}>${product.price}</Text>
               </Box>
               <Box>
                 <Box onClick={() => handleAddCard(product)}
-                  w="35px" 
-                  height="35px" 
+                  w="2.3rem" 
+                  height="2.3rem" 
                   borderRadius="50%" 
                  border="1px solid #FF8798"
                   cursor="pointer"
@@ -155,7 +158,7 @@ dispatch(setCardOpenClose(true))
                   color="#FF8798"
                   _hover={{bgColor:"#FF8798",color:"white"}}
                 >
-                  <TbShoppingBagPlus  size={24} />
+                  <TbShoppingBagPlus  size="1.4rem"/>
                 </Box>
               </Box>
             </Box>
