@@ -12,7 +12,7 @@ import { FaRegSmileBeam } from "react-icons/fa";
 import { setCardOpenClose, setChangeAmount,setDeleteItem } from '../redux/commerceSlice';
 function Card() {
   const dispatch = useDispatch();
-  const { isCardOpen, cardsProducts, totalAmount } = useSelector((state) => state.commerce);
+  const { isCardOpen, cardsProducts, totalAmount,totalPrice } = useSelector((state) => state.commerce);
   useEffect(() => {
     // Sidebar açıldığında body'scrollunu gizle
     if (isCardOpen) {
@@ -30,8 +30,8 @@ function Card() {
   const handleOpenCloseCard = (situation) => {
     dispatch(setCardOpenClose(situation))
   }
-  const handleChangeAmount = (productId, amountChange) => {
-    dispatch(setChangeAmount({ id: productId, change: amountChange }))
+  const handleChangeAmount = (productId, amountChange,price) => {
+    dispatch(setChangeAmount({ id: productId, change: amountChange,price:price }))
   }
   const handleDelete = (id) => {
     dispatch(setDeleteItem(id))
@@ -107,9 +107,9 @@ function Card() {
                   </Box>
                   {/* amount */}
                   <Box width="20%" display="flex" justifyContent="space-around" alignItems="center">
-                    <Box onClick={() => handleChangeAmount(product.id, -1)} cursor="pointer"><FiMinusCircle /></Box>
+                    <Box onClick={() => handleChangeAmount(product.id, -1,-product.price)} cursor="pointer"><FiMinusCircle /></Box>
                     <Text>{product.amount}</Text>
-                    <Box onClick={() => handleChangeAmount(product.id, 1)} cursor="pointer"><FiPlusCircle /></Box>
+                    <Box onClick={() => handleChangeAmount(product.id, 1,product.price)} cursor="pointer"><FiPlusCircle /></Box>
                   </Box>
                 </Box>
               ))
@@ -129,7 +129,7 @@ function Card() {
           {/* button */}
 
 
-          <Button bgColor="#FF8798" color="white" mx="auto" height="6vh" width="70%" mt="auto" _hover={{ bgColor: "#FFA9B5" }} >$50 CHECKOUT</Button>
+          <Button bgColor="#FF8798" color="white" mx="auto" height="6vh" width="70%" mt="auto" _hover={{ bgColor: "#FFA9B5" }} >${totalPrice} CHECKOUT</Button>
         </Box>
 
 

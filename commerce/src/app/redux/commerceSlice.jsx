@@ -64,6 +64,7 @@ export const commerceSlice = createSlice({
   isCardOpen : false,
   cardsProducts:[],
   totalAmount:0,
+  totalPrice : 0
   
 
     },
@@ -79,23 +80,29 @@ setCardOpenClose : (state,action) => {
 state.isCardOpen = action.payload
 },
 setAddCard :(state,action) => {
-  const { id, amount } = action.payload;
+  const { id, amount,price } = action.payload;
   const existingProduct = state.cardsProducts.find(product => product.id === id);
   if (existingProduct) {
     existingProduct.amount += amount;
     state.totalAmount += amount
+    state.totalPrice += existingProduct.price
+    state.totalPrice = parseFloat(state.totalPrice.toFixed(2));
   } else {
     state.cardsProducts.push(action.payload);
     state.totalAmount += amount
+    state.totalPrice += price
+    
   }
 
 },
 setChangeAmount : (state,action) => {
-const  {id,change} = action.payload
+const  {id,change,price} = action.payload
 state.cardsProducts.map((product) =>{
   if(product.id === id) {
     product.amount += change
     state.totalAmount += change
+    state.totalPrice += price
+    state.totalPrice = parseFloat(state.totalPrice.toFixed(2));
    if(product.amount <= 0) {
     state.cardsProducts = state.cardsProducts.filter(item => item.id !== id);
    }
@@ -105,11 +112,13 @@ state.cardsProducts.map((product) =>{
 
 },
 setDeleteItem : (state,action) => {
-const id = action.payload;
-const product = state.cardsProducts.find((item) =>  item.id === id)
-state.cardsProducts = state.cardsProducts.filter(item => item.id !== id);
-state.totalAmount -= product.amount
-}
+  const id = action.payload;
+  const product = state.cardsProducts.find((item) =>  item.id === id)
+  state.cardsProducts = state.cardsProducts.filter(item => item.id !== id);
+  state.totalAmount -= product.amount
+  state.totalPrice -=product.price * product.amount
+  state.totalPrice = parseFloat(state.totalPrice.toFixed(2));
+  }
     }
 })
 export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem} = commerceSlice.actions
