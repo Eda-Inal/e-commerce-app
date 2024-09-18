@@ -120,13 +120,16 @@ const displayProduct = cardsFilterProducts.length > 0 ? cardsFilterProducts : pr
 
     </Box>
     {/* Cards */}
-<Box mt={8} width="100%" mx="auto" display="flex" flexWrap="wrap" justifyContent={["center", "center", "space-around"]} >
+<Box mt={8} width="100%" mx="auto" display="flex" flexWrap="wrap" 
+ justifyContent={displayProduct.length < 4 ? ["center", "center", "flex-start"] : ["center", "center", "space-around"]}
+>
 {displayProduct.map((product, index) => (
         <Box
           key={index}
           width={["48%", "48%", "48%", "30%", "30%", "22%"]}
           boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"
-          mx={["auto", 0, 0, 0]}
+          mx={displayProduct.length < 4 ? ["auto", 0] : ["auto", 0, 0, 0]} 
+          mr={displayProduct.length < 4 ? [0, 1, 2,3, 7] : null}
           height={["200px","12rem"]}
           bgColor="#FFFEFE"
           display="flex"
@@ -134,6 +137,7 @@ const displayProduct = cardsFilterProducts.length > 0 ? cardsFilterProducts : pr
           alignItems={{ base: 'center', sm: 'initial' }}
           position="relative"
           mb={6}
+         
         >
           {/* Resim Alanı - %30 */}
           <Box width="35%" height="100%" position="relative" >
