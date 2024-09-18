@@ -7,6 +7,8 @@ import { BsRecycle } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
 import { GiCorkedTube } from "react-icons/gi";
 import { BsHandbag } from "react-icons/bs";
+import { CiCircleCheck } from "react-icons/ci";
+import { TbShoppingBagX } from "react-icons/tb";
 
 export const commerceSlice = createSlice({
     name : 'commerce',
@@ -64,7 +66,14 @@ export const commerceSlice = createSlice({
   isCardOpen : false,
   cardsProducts:[],
   totalAmount:0,
-  totalPrice : 0
+  totalPrice : 0,
+  alertMessage:{
+    message : "Added to your cart! Glow on!",
+    bg:"#A5FFB1",
+    icon:CiCircleCheck
+
+  },
+  isAlert:true
   
 
     },
@@ -118,8 +127,11 @@ setDeleteItem : (state,action) => {
   state.totalAmount -= product.amount
   state.totalPrice -=product.price * product.amount
   state.totalPrice = parseFloat(state.totalPrice.toFixed(2));
+  },
+  setIsAlert:(state,action) => {
+state.isAlert = action.payload
   }
     }
 })
-export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem} = commerceSlice.actions
+export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem,setIsAlert} = commerceSlice.actions
 export default commerceSlice.reducer

@@ -5,6 +5,7 @@ import Navbar from "./components/navbar";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import Card from "./card/page";
+import Alert from "./components/alert";
 
 
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
     <body>
       <Provider store={store}>
         <Providers>
+          <Alert/>
           <Navbar/>
           <Card/>
           {children}
