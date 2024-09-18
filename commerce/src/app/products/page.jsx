@@ -7,22 +7,29 @@ import serum from  "../../../public/product.jpg"
 import banner from  "../../../public/banner.jpg"
 import Image from 'next/image'
 import { IoIosAdd } from "react-icons/io";
-import { setAddCard ,setCardOpenClose} from '../redux/commerceSlice'
+import { setAddCard ,setCardOpenClose,setFilterTypes,setFilterSort} from '../redux/commerceSlice'
 import { TbShoppingBagPlus } from "react-icons/tb";
 import { px } from 'framer-motion'
 
 function Products() {
   const dispatch = useDispatch()
-  const {filterNames,contents,cardsProducts} = useSelector((state) => state.commerce)
-  const items = Array(6).fill({});
+  const {filterNames,contents,cardsProducts,filterTypes,cardsFilterProducts} = useSelector((state) => state.commerce)
   const boxes = useBreakpointValue({ base: true, lg: false });
 const  {products} = datas
-console.log("card redux", cardsProducts);
+console.log("card filter redux", cardsFilterProducts);
 
 const handleAddCard = (product) => {
 dispatch(setAddCard({...product,amount:1}))
 dispatch(setCardOpenClose(true))
 }
+const handleFilter = (item) => {
+console.log(item);
+dispatch(setFilterTypes(item))
+}
+const handleFilterSort  =(sortByName) => {
+dispatch(setFilterSort(sortByName))
+}
+const displayProduct = cardsFilterProducts.length > 0 ? cardsFilterProducts : products
   return (
     <>
 
@@ -61,7 +68,7 @@ dispatch(setCardOpenClose(true))
   <Box  display="flex" height={["3rem","3rem","3rem","9rem"]}  flexDirection={["row","row","row","column"]}  justifyContent={["space-between","space-around","space-around","space-around"]} alignContent={["center","center","center","flex-start"]} flexWrap="wrap" mx={2} fontSize="1rem">
   {
     filterNames.map((filter) => (
-      <Box fontWeight={500}  > <Radio value={filter.id.toString()} >{filter.name}</Radio></Box>
+      <Box fontWeight={500} onClick={() => {handleFilterSort(filter.name)}}  > <Radio value={filter.id.toString()} >{filter.name}</Radio></Box>
     ))
   }
     
@@ -104,14 +111,17 @@ dispatch(setCardOpenClose(true))
 {/* right side */}
 <Box width={["100%","100%","100%","75%"]}  mx="auto">
     <Box width="100%" display="flex" mx="auto" justifyContent="space-between">
-<Button width="22%" height="40px" fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #FF8798 solid" _hover={{bgColor:"#FFE3E8"}}  boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)" fontSize="1.1rem">Serum</Button>
-<Button width="22%" height="40px"  _hover={{bgColor:"#FFE3E8"}}  fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #FF8798 solid" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)"fontSize="1.1rem">Cream</Button>
-<Button width="22%"  _hover={{bgColor:"#FFE3E8"}}  height="40px"fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #FF8798 solid" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)" fontSize="1.1rem">Mask</Button>
-<Button width="22%"  _hover={{bgColor:"#FFE3E8"}}  height="40px" fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #FF8798 solid" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)" fontSize="1.1rem">Toner</Button>
+      {
+        filterTypes.map((item) => (
+          <Button onClick={() => {handleFilter(item)}}  width="22%" height="40px" fontWeight={500} borderRadius={15} bgColor="transparent" border="1px #FF8798 solid" _hover={{bgColor:"#FFE3E8"}}  boxShadow="4px 8px 4px rgba(0, 0, 0, 0.15)" fontSize="1.1rem">{item}</Button>
+        ))
+      }
+
+
     </Box>
     {/* Cards */}
-<Box mt={8} width="100%" mx="auto" display="flex" flexWrap="wrap" justifyContent={["center", "center", "space-between"]} >
-{products.map((product, index) => (
+<Box mt={8} width="100%" mx="auto" display="flex" flexWrap="wrap" justifyContent={["center", "center", "space-around"]} >
+{displayProduct.map((product, index) => (
         <Box
           key={index}
           width={["48%", "48%", "48%", "30%", "30%", "22%"]}

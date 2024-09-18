@@ -7,9 +7,8 @@ import { BsRecycle } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
 import { GiCorkedTube } from "react-icons/gi";
 import { BsHandbag } from "react-icons/bs";
-import { CiCircleCheck } from "react-icons/ci";
-import { TbShoppingBagX } from "react-icons/tb";
-
+import datas from "../../../public/data.json"
+const  {products} = datas
 export const commerceSlice = createSlice({
     name : 'commerce',
     initialState:{
@@ -63,18 +62,20 @@ export const commerceSlice = createSlice({
       icon: BsHandbag
     }
   ],
+  filterTypes:["Serum","Cream","Mask","Toner"]
+  ,
   isCardOpen : false,
   cardsProducts:[],
+  cardsFilterProducts:[],
   totalAmount:0,
   totalPrice : 0,
   alertMessage:{
-    message : "Added to your cart! Glow on!",
-    bg:"#A5FFB1",
-    icon:CiCircleCheck,
+    message : "",
+    bg:"",
     positive : true
 
   },
-  isAlert:true
+  isAlert:false
   
 
     },
@@ -138,8 +139,18 @@ state.alertMessage.message = message
 state.alertMessage.bg = bg
 state.alertMessage.positive = positive
 state.isAlert = true
+  },
+  setFilterTypes : (state,action) => {
+const name = action.payload
+state.cardsFilterProducts = products.filter((product,index) => product.type === name)
+  },
+  setFilterSort : (state,action) => {
+const sortByName = action.payload
+if(sortByName === "All") {
+  state.cardsFilterProducts = []
+}
   }
     }
 })
-export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem,setIsAlert,setAlertMessage} = commerceSlice.actions
+export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem,setIsAlert,setAlertMessage,setFilterTypes,setFilterSort} = commerceSlice.actions
 export default commerceSlice.reducer
