@@ -9,7 +9,7 @@ import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import Image from 'next/image';
 import serum from "../../../public/product.jpg"
 import { FaRegSmileBeam } from "react-icons/fa";
-import { setCardOpenClose, setChangeAmount,setDeleteItem } from '../redux/commerceSlice';
+import { setCardOpenClose, setChangeAmount,setDeleteItem,setAlertMessage } from '../redux/commerceSlice';
 function Card() {
   const dispatch = useDispatch();
   const { isCardOpen, cardsProducts, totalAmount,totalPrice } = useSelector((state) => state.commerce);
@@ -35,7 +35,17 @@ function Card() {
   }
   const handleDelete = (id) => {
     dispatch(setDeleteItem(id))
+    dispatch(setAlertMessage({message:"Removed from your cart! We'll be here!",bg:"#A5FFB1",positive:true}))
     }
+    const handleCheckOut = () => {
+      if(totalAmount>0){
+        dispatch(setAlertMessage({message:"Yay! Your order is in! We’re on it",bg:"#A5FFB1",positive:true}))
+      }
+      else{
+        dispatch(setAlertMessage({message:"Your cart is empty. Time to treat yourself!",bg:"#FF7F7F",positive:false}))
+      }
+    }
+  
 
 
 
@@ -129,7 +139,7 @@ function Card() {
           {/* button */}
 
 
-          <Button bgColor="#FF8798" color="white" mx="auto" height="6vh" width="70%" mt="auto" _hover={{ bgColor: "#FFA9B5" }} >${totalPrice} CHECKOUT</Button>
+          <Button onClick={()=> handleCheckOut()} bgColor="#FF8798" color="white" mx="auto" height="6vh" width="70%" mt="auto" _hover={{ bgColor: "#FFA9B5" }} >${totalPrice} CHECKOUT</Button>
         </Box>
 
 

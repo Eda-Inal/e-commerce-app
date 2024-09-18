@@ -70,7 +70,8 @@ export const commerceSlice = createSlice({
   alertMessage:{
     message : "Added to your cart! Glow on!",
     bg:"#A5FFB1",
-    icon:CiCircleCheck
+    icon:CiCircleCheck,
+    positive : true
 
   },
   isAlert:true
@@ -130,8 +131,15 @@ setDeleteItem : (state,action) => {
   },
   setIsAlert:(state,action) => {
 state.isAlert = action.payload
+  },
+  setAlertMessage:(state,action) => {
+const {message,bg,positive} = action.payload
+state.alertMessage.message = message
+state.alertMessage.bg = bg
+state.alertMessage.positive = positive
+state.isAlert = true
   }
     }
 })
-export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem,setIsAlert} = commerceSlice.actions
+export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem,setIsAlert,setAlertMessage} = commerceSlice.actions
 export default commerceSlice.reducer

@@ -21,7 +21,7 @@ function Alert() {
     {
         isAlert && (
             <Box position="absolute" top={2} right={2} bgColor={alertMessage.bg} maxWidth="400px" maxHeight="100px" zIndex={999999} borderRadius={5} display="flex" alignItems="center" justifyContent="center" p={4}>
-            <Box mr={1}><alertMessage.icon size="1.3rem"/></Box>
+            <Box mr={1}>{alertMessage.positive ? <CiCircleCheck size="1.3rem"/> : <TbShoppingBagX size="1.3rem"/>}</Box>
             <Box fontSize="1rem"><Text>{alertMessage.message}</Text></Box>
             
                 </Box>
@@ -33,3 +33,4 @@ function Alert() {
 }
 
 export default Alert
+ 
