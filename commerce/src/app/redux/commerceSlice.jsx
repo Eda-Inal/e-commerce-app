@@ -75,7 +75,10 @@ export const commerceSlice = createSlice({
     positive : true
 
   },
-  isAlert:false
+  isAlert:false,
+
+
+
   
 
     },
@@ -92,8 +95,14 @@ state.isCardOpen = action.payload
 },
 setAddCard :(state,action) => {
   const { id, amount,price } = action.payload;
-  const existingProduct = state.cardsProducts.find(product => product.id === id);
-  if (existingProduct) {
+ 
+
+const existingProduct = state.cardsProducts.find(product => {
+  return product.id === id 
+});
+
+
+  if (existingProduct ) {
     existingProduct.amount += amount;
     state.totalAmount += amount
     state.totalPrice += existingProduct.price
@@ -102,6 +111,7 @@ setAddCard :(state,action) => {
     state.cardsProducts.push(action.payload);
     state.totalAmount += amount
     state.totalPrice += price
+  
     
   }
 

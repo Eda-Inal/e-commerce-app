@@ -13,13 +13,20 @@ import { px } from 'framer-motion'
 
 function Products() {
   const dispatch = useDispatch()
-  const {filterNames,contents,cardsProducts,filterTypes,cardsFilterProducts} = useSelector((state) => state.commerce)
+  const {filterNames,contents,cardsProducts,filterTypes,cardsFilterProducts,} = useSelector((state) => state.commerce)
   const boxes = useBreakpointValue({ base: true, lg: false });
 const  {products} = datas
-console.log("card filter redux", cardsFilterProducts);
+
+
+const lastProduct = products[products.length - 1];
+
 
 const handleAddCard = (product) => {
 dispatch(setAddCard({...product,amount:1}))
+dispatch(setCardOpenClose(true))
+}
+const handleBannerAdd = () => {
+dispatch(setAddCard({...lastProduct,amount:1}))
 dispatch(setCardOpenClose(true))
 }
 const handleFilter = (item) => {
@@ -55,7 +62,7 @@ const displayProduct = cardsFilterProducts.length > 0 ? cardsFilterProducts : pr
             <Text fontWeight={500} fontSize="1.1rem" >Discover Ultimate Hydration with Glow & Revive!</Text>
             <Text fontSize="0.9rem" mt={2} fontWeight={400}>Glow & Revive Moisturize</Text>
             <Box display="flex" justifyContent={["end","end","end","center"]}>
-            <Button boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"  width="9rem" borderRadius="20px" color="white" bgColor="#FF8798" mt="auto" _hover={{bgColor:"#FFA9B5"}}>$18 Buy Now</Button>
+            <Button onClick = {() => handleBannerAdd()} boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"  width="9rem" borderRadius="20px" color="white" bgColor="#FF8798" mt="auto" _hover={{bgColor:"#FFA9B5"}}>$18 Buy Now</Button>
             </Box>
            
           </Box>
