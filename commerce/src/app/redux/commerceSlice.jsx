@@ -144,12 +144,30 @@ state.isAlert = true
 const name = action.payload
 state.cardsFilterProducts = products.filter((product,index) => product.type === name)
   },
-  setFilterSort : (state,action) => {
-const sortByName = action.payload
-if(sortByName === "All") {
-  state.cardsFilterProducts = []
-}
+  setFilterSort: (state, action) => {
+    const sortByName = action.payload;
+    const productsToSort = state.cardsFilterProducts.length > 0 ? state.cardsFilterProducts : products;
+  
+    if (sortByName === "All") {
+      state.cardsFilterProducts = [];  
+    }
+  
+    if (sortByName === "Price") {
+      const sortedProducts = [...productsToSort].sort((a, b) => b.price - a.price);
+      state.cardsFilterProducts = sortedProducts;
+    }
+  
+    if (sortByName === "Price Descending") {
+      const sortedProducts = [...productsToSort].sort((a, b) => a.price - b.price);
+      state.cardsFilterProducts = sortedProducts;
+    }
+  
+    if (sortByName === "Popularity") {
+      const sortedByPopularity = [...productsToSort].sort((a, b) => b.popularity - a.popularity);
+      state.cardsFilterProducts = sortedByPopularity;
+    }
   }
+  
     }
 })
 export const {openMenuBar,closeMenuBar,setCardOpenClose,setAddCard,setChangeAmount,setDeleteItem,setIsAlert,setAlertMessage,setFilterTypes,setFilterSort} = commerceSlice.actions
