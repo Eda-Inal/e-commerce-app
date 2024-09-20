@@ -40,15 +40,15 @@ const displayProduct = cardsFilterProducts.length > 0 ? cardsFilterProducts : pr
   return (
     <>
 
-  <Box width={["95%","90%","80%"]} mx="auto" mt={8}  >
+  <Box width={["95%","90%","90%"]} mx="auto" mt={8}  >
 
 <Box width="100%" display="flex" mx="auto" flexDirection={["column","column","column","row"]}>
 <Box width={["100%","100%","100%","20%"]} mx="auto" display="flex" flexDirection="column">
   {/* banner part */}
-  <Box width="100%" height={["11rem","9rem","9rem","21rem"]} textAlign="center" bgColor="#FFE3E8" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.2)" mb={[3,3,3,0]} position="relative" borderRadius={15} display="flex" flexDirection={["row","row","row" ,"column"]} >
+  <Box width="100%" height={["11rem","9rem","9rem","21rem"]} textAlign="center" border="4px double #FF8798" boxShadow="4px 8px 4px rgba(0, 0, 0, 0.2)" mb={[3,3,3,0]} position="relative" borderRadius={15} display="flex" flexDirection={["row","row","row" ,"column"]} >
 {/* banner img */}
- <Box position="absolute" bgColor="#FF8798" borderRadius="50%" width="50px" height="50px" top={[1]} left={[1,3,5,8]} zIndex={99} color="white" display="flex" alignItems="center" justifyContent="center" fontWeight={500}>NEW</Box> 
-<Box width={["30%","20%","20%","50%"]} height={["80%","90%","80%","40%"]}   position="relative" mt={2}   borderRadius="20%"  overflow="hidden" mx="auto" >
+ <Box position="absolute" bgColor="#FF8798" borderRadius="50%" width="50px" height="50px" top={[1]} left={[1,3,7,8,12]} zIndex={99} color="white" display="flex" alignItems="center" justifyContent="center" fontWeight={500}>NEW</Box> 
+<Box width={["30%","20%","15%","50%"]} height={["80%","90%","80%","40%"]}   position="relative" mt={2}   borderRadius="20%"  overflow="hidden" mx="auto" >
             <Image 
               src={banner} 
               alt="Serum Image" 
@@ -170,14 +170,15 @@ const displayProduct = cardsFilterProducts.length > 0 ? cardsFilterProducts : pr
                   w="2.3rem" 
                   height="2.3rem" 
                   borderRadius="50%" 
-                 border="1px solid #FF8798"
+                 
                   cursor="pointer"
                   boxShadow="4px 8px 4px rgba(0, 0, 0, 0.1)"
                   display="flex"
                   justifyContent="center"
                   alignItems="center"
-                  color="#FF8798"
-                  _hover={{bgColor:"#FF8798",color:"white"}}
+                  color="white"
+                  bgColor="#FF8798"
+                   _hover={{border:"1px solid #FF8798",bgColor: "white",color:"#FF8798"}}
                 >
                   <TbShoppingBagPlus  size="1.4rem"/>
                 </Box>
