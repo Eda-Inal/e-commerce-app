@@ -10,15 +10,31 @@ import cream from  "../../../public/cream.jpg"
 import creamsecond from  "../../../public/creamsecond.jpg"
 import le from "../../../public/le.jpg"
 import five from "../../../public/five.png"
-
+import Link from 'next/link'
+import { useDispatch,useSelector } from 'react-redux'
+import { setAddCard,setCardOpenClose } from '../redux/commerceSlice'
 
 function Main() {
+  const dispatch=useDispatch();
+  const lastProduct = {
+    "id": 12,
+    "name": "Ultra Cream",
+    "description": "Intensely hydrates and strengthens skin barrier.",
+    "type": "Cream",
+    "price": 23.50,
+    "popularity": 4.6,
+   "img": "/assets/cream4.jpg"
+  }
 
     // Ekran genişliğine göre fotoğraf yerleşimini belirlemek için
     const imagePosition = useBreakpointValue({ base: "column", md: "row" });
   
     // Sadece küçük ekranlarda görülecek sarı fotoğraf için
     const showYellowImage = useBreakpointValue({ base: true, md: false });
+    const handleBannerAdd = () => {
+      dispatch(setAddCard({...lastProduct,amount:1}))
+      dispatch(setCardOpenClose(true))
+      }
   
   return (
   <>
@@ -64,7 +80,7 @@ function Main() {
       <Text fontSize="1.7rem" fontWeight={300} mt={[0,2,4]}>Discover the Secrets to Glowing Skin</Text>
 
 
-      <Button width="12rem" borderRadius="30px" height="4rem" fontSize="1.3rem" rightIcon={<BsBasket3Fill/>} mt={8} bgColor="#FF8798" _hover={{bgColor:"#FFA9B5"}} color="white" boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.35)">Shop Now</Button>
+      <Button width="12rem" borderRadius="30px" height="4rem" fontSize="1.3rem" rightIcon={<BsBasket3Fill/>} mt={8} bgColor="#FF8798" _hover={{bgColor:"#FFA9B5"}} color="white" boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.35)"><Link href="/products">Shop Now</Link></Button>
 
       <Box minW={300} maxHeight={600}  mt={6} mb={3} bgColor="white" boxShadow="10px 4px 4px rgba(0, 0, 0, 0.25)" borderRadius="20px" position="relative">
         <Box display="flex" flexDirection="column" justifyContent="center"  alignItem="center" width="90%" mx="auto">
@@ -100,7 +116,7 @@ function Main() {
     </Box>
   </Box>
   <Box display="flex" justifyContent="flex-end"  mb={3}>
-    <Button width="10rem" height="3rem"  borderRadius="30px" bgColor="#FF8798" _hover={{bgColor:"#FFA9B5"}} color="white" fontSize="1.2rem" fontWeight={500} boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.15)">Buy now</Button>
+    <Button onClick = {() => handleBannerAdd()} width="10rem" height="3rem"  borderRadius="30px" bgColor="#FF8798" _hover={{bgColor:"#FFA9B5"}} color="white" fontSize="1.2rem" fontWeight={500} boxShadow=" 5px 10px 4px rgba(0, 0, 0, 0.15)">Buy now</Button>
   </Box>
 </Box>
           </Box>
