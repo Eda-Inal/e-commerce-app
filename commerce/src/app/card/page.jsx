@@ -78,7 +78,7 @@ function Card() {
          
 
           {/* card boxes */}
-          <Box height="70%" width="100%" overflowY="auto">
+          <Box height="76%" width="100%" overflowY="auto">
             {
               cardsProducts.length < 1 && (
                 <Box mt={8} fontSize="1rem"  >
