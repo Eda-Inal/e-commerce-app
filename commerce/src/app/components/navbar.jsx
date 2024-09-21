@@ -39,7 +39,7 @@ function Navbar() {
                 <Flex gap={10} alignItems="center" fontWeight={300} >
                   <Box fontSize="lg" cursor="pointer"><Link href="/home">Home</Link></Box>
                   <Box fontSize="lg" cursor="pointer"><Link href="/products">Products</Link></Box>
-                  <Box fontSize="lg" cursor="pointer">About Us</Box>
+             
                   <Box onClick={() => handleOpenCloseCard(true)} fontSize="lg" fontWeight={500} cursor="pointer" position="relative">
                     <BsHandbag color='#FF8798' />
                     <Box position="absolute" fontSize="10px" top="-2" right="-1">
@@ -80,7 +80,7 @@ function Navbar() {
       {isBottomBar && (
     <Box position="fixed" boxShadow="5px -3px 3px rgba(0, 0, 0, 0.25)" zIndex={999} bottom={0} left={0} width="10rem" fontWeight={500} height="10rem" bgColor="#FF8798" color="gray.700"  borderTopRightRadius="90%" display="flex" flexDirection="column" justifyContent="space-around"    >
  {navbarItems.map((item) => (
-  <Box display="flex" ml={2} alignItems="center" key={item.name}>
+  <Box display="flex" ml={2} alignItems="center" key={item.name} onClick={()=>handleCloseMenubar()}>
     <item.icon  />
     <Box ml={1} fontSize="1.2rem">
       {/* Eğer item.name 'My card' ise onClick ekle, değilse normal Link */}

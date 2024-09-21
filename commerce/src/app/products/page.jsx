@@ -13,7 +13,7 @@ import { px } from 'framer-motion'
 
 function Products() {
   const dispatch = useDispatch()
-  const {filterNames,contents,cardsProducts,filterTypes,cardsFilterProducts,} = useSelector((state) => state.commerce)
+  const {filterNames,contents,cardsProducts,filterTypes,cardsFilterProducts,radioFirstItem,radioOther} = useSelector((state) => state.commerce)
   const boxes = useBreakpointValue({ base: true, lg: false });
 const  {products} = datas
 
@@ -33,8 +33,8 @@ const handleFilter = (item) => {
 console.log(item);
 dispatch(setFilterTypes(item))
 }
-const handleFilterSort  =(sortByName) => {
-dispatch(setFilterSort(sortByName))
+const handleFilterSort  =(item) => {
+dispatch(setFilterSort({name:item.name,id:item.id}))
 }
 const displayProduct = cardsFilterProducts.length > 0 ? cardsFilterProducts : products
   return (
@@ -70,12 +70,12 @@ const displayProduct = cardsFilterProducts.length > 0 ? cardsFilterProducts : pr
   </Box>
   {/* filter part */}
   <Box width="100%"   mt={5} mb={8} border="1px solid #FF8798" borderRadius="5px"    >
-<RadioGroup defaultValue='1'    >
+<RadioGroup defaultValue={radioFirstItem}    >
 
   <Box  display="flex" height={["3rem","3rem","3rem","9rem"]}  flexDirection={["row","row","row","column"]}  justifyContent={["space-between","space-around","space-around","space-around"]} alignContent={["center","center","center","flex-start"]} flexWrap="wrap" mx={2} fontSize="1rem">
   {
     filterNames.map((filter) => (
-      <Box fontWeight={500} onClick={() => {handleFilterSort(filter.name)}}  > <Radio value={filter.id.toString()} >{filter.name}</Radio></Box>
+      <Box fontWeight={500} onClick={() => {handleFilterSort(filter)}}  > <Radio value={filter.id} >{filter.name}</Radio></Box>
     ))
   }
     

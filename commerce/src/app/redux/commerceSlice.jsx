@@ -15,18 +15,18 @@ export const commerceSlice = createSlice({
    isBottomBar :false,
    filterNames : [   {
     name:"All",
-    id:1
+    id:"1"
   },  {
     name:"Price",
-    id:2
+    id:"2"
   },
   {
     name:"Price Descending",
-    id:3
+    id:"3"
   },
   {
     name:"Popularity",
-    id:4
+    id:"4"
   }],
    contents:[
     {
@@ -76,6 +76,9 @@ export const commerceSlice = createSlice({
 
   },
   isAlert:false,
+  radioFirstItem :"1",
+  radioOther:"2"
+  
 
 
 
@@ -153,28 +156,34 @@ state.isAlert = true
   setFilterTypes : (state,action) => {
 const name = action.payload
 state.cardsFilterProducts = products.filter((product,index) => product.type === name)
-  },
+state.radioFirstItem = "1";
+},
   setFilterSort: (state, action) => {
-    const sortByName = action.payload;
+    const {name,id} = action.payload;
+ 
     const productsToSort = state.cardsFilterProducts.length > 0 ? state.cardsFilterProducts : products;
   
-    if (sortByName === "All") {
+    if (name === "All") {
       state.cardsFilterProducts = [];  
     }
   
-    if (sortByName === "Price") {
+    if (name === "Price") {
       const sortedProducts = [...productsToSort].sort((a, b) => b.price - a.price);
       state.cardsFilterProducts = sortedProducts;
+      
+   
     }
   
-    if (sortByName === "Price Descending") {
+    if (name === "Price Descending") {
       const sortedProducts = [...productsToSort].sort((a, b) => a.price - b.price);
       state.cardsFilterProducts = sortedProducts;
+   
     }
   
-    if (sortByName === "Popularity") {
+    if (name === "Popularity") {
       const sortedByPopularity = [...productsToSort].sort((a, b) => b.popularity - a.popularity);
       state.cardsFilterProducts = sortedByPopularity;
+    
     }
   }
   
