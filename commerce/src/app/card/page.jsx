@@ -54,7 +54,7 @@ function Card() {
 
 
       <Box width={["100%", "70%", "50%", "40%", "35%", "30%"]} zIndex={9999} height="100vh" bgColor="#FFF" position="fixed" top={0} right={0} boxShadow="-8px 4px 4px rgba(0, 0, 0, 0.25)" >
-        <Box display="flex" flexDirection="column" width="90%" mx="auto" height="98vh">
+        <Box display="flex" flexDirection="column" justifyContent="space-around" width="90%" mx="auto" height="100vh">
           <Box>
           <Box cursor="pointer" onClick={() => handleOpenCloseCard(false)} display="flex" justifyContent="center" alignItems="center">
             <FaCaretLeft color="#FF8798" />
@@ -77,7 +77,7 @@ function Card() {
          
 
           {/* card boxes */}
-          <Box height="80%" width="100%" overflowY="auto">
+          <Box height="70%"width="100%" overflowY="auto">
             {
               cardsProducts.length < 1 && (
                 <Box mt={8} fontSize="1rem"  >
@@ -139,7 +139,7 @@ function Card() {
           {/* button */}
 
 
-          <Button onClick={()=> handleCheckOut()} bgColor="#FF8798" color="white" mx="auto" height="6%" width="70%" mt={3} _hover={{ bgColor: "#FFA9B5" }} >${totalPrice} CHECKOUT</Button>
+          <Button onClick={()=> handleCheckOut()} bgColor="#FF8798" color="white" mx="auto" width="70%" mt={3} _hover={{ bgColor: "#FFA9B5" }} >${totalPrice} CHECKOUT</Button>
         </Box>
 
 
