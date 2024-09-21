@@ -54,7 +54,8 @@ function Card() {
 
 
       <Box width={["100%", "70%", "50%", "40%", "35%", "30%"]} zIndex={9999} height="100vh" bgColor="#FFF" position="fixed" top={0} right={0} boxShadow="-8px 4px 4px rgba(0, 0, 0, 0.25)" >
-        <Box display="flex" flexDirection="column" justifyContent="space-around" width="90%" mx="auto" height="100vh">
+        <Box height="100vh" width="100%">
+        <Box display="flex" flexDirection="column" justifyContent="space-between" width="90%" mx="auto" height={["90vh","96vh"]}>
           <Box>
           <Box cursor="pointer" onClick={() => handleOpenCloseCard(false)} display="flex" justifyContent="center" alignItems="center">
             <FaCaretLeft color="#FF8798" />
@@ -138,9 +139,12 @@ function Card() {
 
           {/* button */}
 
-<Box  zIndex={999999} onClick={()=> handleCheckOut()}  mx="auto" width="70%" mt={3} >    <Button width="100%" bgColor="#FF8798" color="white" _hover={{ bgColor: "#FFA9B5" }}  >${totalPrice} CHECKOUT</Button></Box>
+<Box  zIndex={999999} onClick={()=> handleCheckOut()}  mx="auto" width="70%" mt={3} >    <Button width="100%" height="40px" bgColor="#FF8798" color="white" _hover={{ bgColor: "#FFA9B5" }}  >${totalPrice} CHECKOUT</Button>
+</Box>
       
         </Box>
+        </Box>
+    
 
 
 
