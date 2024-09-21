@@ -77,7 +77,7 @@ function Card() {
          
 
           {/* card boxes */}
-          <Box height="70%"width="100%" overflowY="auto">
+          <Box height="70%" width="100%" overflowY="auto">
             {
               cardsProducts.length < 1 && (
                 <Box mt={8} fontSize="1rem"  >
@@ -138,8 +138,8 @@ function Card() {
 
           {/* button */}
 
-
-          <Button onClick={()=> handleCheckOut()} bgColor="#FF8798" color="white" mx="auto" width="70%" mt={3} _hover={{ bgColor: "#FFA9B5" }} >${totalPrice} CHECKOUT</Button>
+<Box  zIndex={999999} onClick={()=> handleCheckOut()}  mx="auto" width="70%" mt={3} >    <Button width="100%" bgColor="#FF8798" color="white" _hover={{ bgColor: "#FFA9B5" }}  >${totalPrice} CHECKOUT</Button></Box>
+      
         </Box>
 
 
