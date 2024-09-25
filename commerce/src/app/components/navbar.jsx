@@ -37,7 +37,7 @@ function Navbar() {
             {
               !showNavbar && (
                 <Flex gap={10} alignItems="center" fontWeight={300} >
-                  <Box fontSize="lg" cursor="pointer"><Link href="/home">Home</Link></Box>
+                  <Box fontSize="lg" cursor="pointer"><Link href="/">Home</Link></Box>
                   <Box fontSize="lg" cursor="pointer"><Link href="/products">Products</Link></Box>
              
                   <Box onClick={() => handleOpenCloseCard(true)} fontSize="lg" fontWeight={500} cursor="pointer" position="relative">
