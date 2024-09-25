@@ -114,7 +114,7 @@ const existingProduct = state.cardsProducts.find(product => {
     state.cardsProducts.push(action.payload);
     state.totalAmount += amount
     state.totalPrice += price
-  
+    state.totalPrice = parseFloat(state.totalPrice.toFixed(2));
     
   }
 
